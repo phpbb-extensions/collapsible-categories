@@ -1,14 +1,14 @@
 <?php
 /**
 *
-* Extension Quickstart Package.
+* Collapsible Categories extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2014 phpBB Limited <https://www.phpbb.com>
+* @copyright (c) 2015 phpBB Limited <https://www.phpbb.com>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace vendorname\packagename;
+namespace phpbb\collapsiblecategories;
 
 /**
 * This ext class is optional and can be omitted if left empty.
