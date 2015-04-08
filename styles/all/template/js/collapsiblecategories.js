@@ -17,7 +17,7 @@
 		var $button = $('<a>')
 			.addClass('collapse-btn collapse-' + ((hidden) ? 'show' : 'hide'))
 			.attr({
-				href: collapsible_categories_url + id,
+				href: collapsible_categories_url + '/' + id,
 				'data-ajax': 'phpbb_collapse',
 				'data-overlay': true
 			});
