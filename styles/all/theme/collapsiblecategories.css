@@ -1,4 +1,5 @@
-.hidden-category + .forabg .topiclist.forums {display: none}
+/* Hide the forums of a hidden category */
+.hidden-category + .forabg .topiclist.forums { display: none; }
 
 /* Collapse button */
 a.collapse-btn {
