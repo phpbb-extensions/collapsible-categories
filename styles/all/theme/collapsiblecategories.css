@@ -1,0 +1,50 @@
+/* Hide the forums of a hidden category */
+.hidden-category + .forabg .topiclist.forums { display: none; }
+
+/* Collapse button */
+a.collapse-btn {
+	margin: -20px 0 0 0;
+	background-color: #eef5f9; /* Button bg color */
+	border: 1px solid #2092E3; /* Button border color */
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+	box-sizing: border-box;
+	float: right;
+}
+a.collapse-btn:after,
+a.collapse-btn:before {
+	background: #eef5f9; /* Button bg color */
+	border: 1px solid #2092E3; /* Symbol bg color */
+	content: '';
+	position: absolute;
+}
+a.collapse-btn:hover,
+a.collapse-btn:hover:after,
+a.collapse-btn:hover:before {
+	background-color: #fff; /* Button hover color */
+	cursor: pointer;
+}
+.rtl a.collapse-btn { float: left; }
+
+/* Collapse show hide symbols */
+a.collapse-hide,
+a.collapse-show {
+	border-radius: 4px;
+	height: 16px;
+	width: 16px;
+}
+a.collapse-hide:after,
+a.collapse-show:before {
+	height: 0;
+	left: 3px;
+	top: 6px;
+	width: 6px;
+}
+a.collapse-show:after {
+	height: 6px;
+	left: 6px;
+	top: 3px;
+	width: 0;
+}
+a.collapse-hide:before { border: none; }
