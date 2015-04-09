@@ -24,7 +24,7 @@ interface main_interface
 	 * will be stored to the user's db and cookie. Expanded categories
 	 * will be removed from the user's db and cookie.
 	 *
-	 * @param int $forum_id A forum identifier
+	 * @param string $forum_id A forum identifier
 	 *
 	 * @throws \phpbb\exception\http_exception An http exception
 	 * @return \Symfony\Component\HttpFoundation\JsonResponse A Symfony JSON Response object

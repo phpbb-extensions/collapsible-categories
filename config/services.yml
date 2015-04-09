@@ -1,4 +1,10 @@
 services:
+    phpbb.collapsiblecategories.controller:
+        class: phpbb\collapsiblecategories\controller\main_controller
+        arguments:
+            - @phpbb.collapsiblecategories.operator
+            - @request
+
     phpbb.collapsiblecategories.operator:
         class: phpbb\collapsiblecategories\operator\operator
         arguments:
