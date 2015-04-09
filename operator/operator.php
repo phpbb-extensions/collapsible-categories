@@ -17,7 +17,7 @@ namespace phpbb\collapsiblecategories\operator;
  */
 class operator implements operator_interface
 {
-	/** @var string An array of collapsed category forum identifiers */
+	/** @var array An array of collapsed category forum identifiers */
 	protected $collapsed_categories;
 
 	/** @var \phpbb\config\config */
@@ -40,7 +40,6 @@ class operator implements operator_interface
 	 * @param \phpbb\request\request              $request        Request object
 	 * @param \phpbb\user                         $user           User object
 	 *
-	 * @return \phpbb\collapsiblecategories\operator\operator
 	 * @access public
 	 */
 	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, \phpbb\user $user)
