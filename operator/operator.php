@@ -33,10 +33,10 @@ class operator implements operator_interface
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\config\config                $config         Config object
-	 * @param \phpbb\db\driver\driver_interface   $db             Database object
-	 * @param \phpbb\request\request              $request        Request object
-	 * @param \phpbb\user                         $user           User object
+	 * @param \phpbb\config\config              $config  Config object
+	 * @param \phpbb\db\driver\driver_interface $db      Database object
+	 * @param \phpbb\request\request            $request Request object
+	 * @param \phpbb\user                       $user    User object
 	 *
 	 * @access public
 	 */
@@ -49,12 +49,12 @@ class operator implements operator_interface
 	}
 
 	/**
-	 * {@inheritdoc}}
+	 * {@inheritdoc}
 	 */
 	public function get_user_categories()
 	{
 		// TODO
-		// 1.gets the categories by unserializing the user object data 'collapsible_categories'
+		// 1.get the categories by unserializing the user object data 'collapsible_categories'
 		// 2.if no categories found, call get_cookie_categories()
 		// 3.return the categories or an empty array
 	}
@@ -64,11 +64,11 @@ class operator implements operator_interface
 	 */
 	public function set_user_categories($forum_id)
 	{
-		// Update the collapsed category data
+		// Set the collapsed category data array
 		$this->set_collapsed_categories($forum_id);
 
 		// TODO
-		// 1.if user is registered, update the db with serialized array of collapsed category data
+		// 1.if user is registered, update the db with serialized array of collapsed category data ($this->collapsed_categories)
 		// 2.set their cookie too by calling set_cookie_categories()
 	}
 
@@ -78,7 +78,7 @@ class operator implements operator_interface
 	public function get_cookie_categories()
 	{
 		// TODO
-		// 1.gets categories from the cookie (will need to be unencoded by json_decode and htmlspecialchars_decode)
+		// 1.gets categories from the cookie (will need to be un-encoded by json decode and htmlspecialchars decode)
 		// 2.return categories or an empty array
 	}
 
@@ -87,11 +87,11 @@ class operator implements operator_interface
 	 */
 	public function set_cookie_categories($forum_id)
 	{
-		// Update the collapsed category data
+		// Set the collapsed category data array
 		$this->set_collapsed_categories($forum_id);
 
 		// TODO
-		// 1.update the cookie with json_encoded array of collapsed category data
+		// 1.update the cookie with json_encoded array of collapsed category data ($this->collapsed_categories)
 	}
 
 	/**
@@ -100,6 +100,7 @@ class operator implements operator_interface
 	 * @param string $forum_id A forum identifier
 	 *
 	 * @return operator_interface $this object
+	 * @access protected
 	 */
 	protected function set_collapsed_categories($forum_id)
 	{
