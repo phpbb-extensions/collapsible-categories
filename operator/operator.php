@@ -99,7 +99,7 @@ class operator implements operator_interface
 	/**
 	 * Set the collapsed_categories property
 	 *
-	 * @param int $forum_id A forum identifier
+	 * @param string $forum_id A forum identifier
 	 *
 	 * @return operator_interface $this object
 	 */
