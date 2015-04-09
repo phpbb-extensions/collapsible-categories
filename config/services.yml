@@ -1,0 +1,10 @@
+services:
+    phpbb.collapsiblecategories.controller:
+        class: phpbb\collapsiblecategories\controller\main_controller
+        arguments:
+            - @config
+            - @controller.helper
+            - @template
+            - @user
+            - %core.root_path%
+            - %core.php_ext%
