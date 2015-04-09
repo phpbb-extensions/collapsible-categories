@@ -57,6 +57,9 @@ class operator implements operator_interface
 	public function get_user_categories()
 	{
 		// TODO
+		// 1.gets the categories by unserializing the user object data 'collapsible_categories'
+		// 2.if no categories found, call get_cookie_categories()
+		// 3.return the categories or an empty array
 	}
 
 	/**
@@ -65,6 +68,8 @@ class operator implements operator_interface
 	public function set_user_categories($forum_id)
 	{
 		// TODO
+		// 1.if user is registered, update the db with serialized array of their collapsed forums
+		// 2.set their cookie too by calling set_cookie_categories()
 	}
 
 	/**
@@ -73,6 +78,8 @@ class operator implements operator_interface
 	public function get_cookie_categories()
 	{
 		// TODO
+		// 1.gets categories from the cookie (will need to be unencoded by json_decode and htmlspecialchars_decode)
+		// 2.return categories or an empty array
 	}
 
 	/**
@@ -81,6 +88,7 @@ class operator implements operator_interface
 	public function set_cookie_categories($forum_id)
 	{
 		// TODO
+		// 1.update the cookie with json_encoded array of their collapsed forums
 	}
 
 	/**
