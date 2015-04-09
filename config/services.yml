@@ -2,5 +2,5 @@ services:
     phpbb.collapsiblecategories.controller:
         class: phpbb\collapsiblecategories\controller\main_controller
         arguments:
-            - @request
             - @phpbb.collapsiblecategories.operator
+            - @request

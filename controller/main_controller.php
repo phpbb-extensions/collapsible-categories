@@ -12,23 +12,23 @@ namespace phpbb\collapsiblecategories\controller;
 
 class controller implements main_interface
 {
-	/** @var \phpbb\request\request */
-	protected $request;
-
 	/** @var \phpbb\collapsiblecategories\operator\operator */
 	protected $operator;
+
+	/** @var \phpbb\request\request */
+	protected $request;
 
 	/**
 	* Constructor
 	*
-	* @param \phpbb\request\request                             $request            Request object
 	* @param \phpbb\collapsiblecategories\operator\operator     $operator           Collapsiblecategories Operator object
+	* @param \phpbb\request\request                             $request            Request object
 	* @access public
 	*/
-	public function __construct(\phpbb\request\request $request, \phpbb\collapsiblecategories\operator\operator $operator)
+	public function __construct(\phpbb\collapsiblecategories\operator\operator $operator, \phpbb\request\request $request)
 	{
-		$this->request = $request;
 		$this->operator = $operator;
+		$this->request = $request;
 	}
 
 	/**
@@ -51,9 +51,10 @@ class controller implements main_interface
 			throw new \phpbb\exception\http_exception(403, 'NO_AUTH_OPERATION');
 		}
 
+		// Update the user's collapsed category data for the given forum
 		$response = $this->operator->set_user_categories($forum_id);
 
-		// Send a JSON response
+		// Return a JSON response
 		return new \Symfony\Component\HttpFoundation\JsonResponse(array(
 			'success' => $response,
 		));
