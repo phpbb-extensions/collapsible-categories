@@ -1,0 +1,5 @@
+phpbb_collapsiblecategories_main_controller:
+    path: /collapse/{forum_id}
+    defaults: { _controller: phpbb.collapsiblecategories.controller:handle, forum_id: 0 }
+    requirements:
+        forum_id: \w+
