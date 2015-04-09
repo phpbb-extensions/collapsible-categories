@@ -4,3 +4,11 @@ services:
         arguments:
             - @phpbb.collapsiblecategories.operator
             - @request
+
+    phpbb.collapsiblecategories.operator:
+        class: phpbb\collapsiblecategories\operator\operator
+        arguments:
+            - @config
+            - @dbal.conn
+            - @request
+            - @user
