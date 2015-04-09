@@ -12,8 +12,6 @@ namespace phpbb\collapsiblecategories\operator;
 
 /**
  * Class operator
- *
- * @package phpbb\collapsiblecategories\operator
  */
 class operator implements operator_interface
 {
