@@ -19,12 +19,12 @@ class main_controller implements main_interface
 	protected $request;
 
 	/**
-	* Constructor
-	*
-	* @param \phpbb\collapsiblecategories\operator\operator $operator Operator object
-	* @param \phpbb\request\request                         $request  Request object
-	* @access public
-	*/
+	 * Constructor
+	 *
+	 * @param \phpbb\collapsiblecategories\operator\operator $operator Operator object
+	 * @param \phpbb\request\request                         $request  Request object
+	 * @access public
+	 */
 	public function __construct(\phpbb\collapsiblecategories\operator\operator $operator, \phpbb\request\request $request)
 	{
 		$this->operator = $operator;
@@ -37,7 +37,7 @@ class main_controller implements main_interface
 	public function handle($forum_id)
 	{
 		// Throw an exception for non-AJAX requests or if the forum_id is missing
-		if (!$this->request->is_ajax() || $forum_id == 0)
+		if (!$this->request->is_ajax() || !$forum_id)
 		{
 			throw new \phpbb\exception\http_exception(403, 'NO_AUTH_OPERATION');
 		}
