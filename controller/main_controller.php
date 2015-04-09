@@ -12,44 +12,23 @@ namespace phpbb\collapsiblecategories\controller;
 
 class controller implements main_interface
 {
-	/** @var \phpbb\config\config */
-	protected $config;
+	/** @var \phpbb\request\request */
+	protected $request;
 
-	/** @var \phpbb\controller\helper */
-	protected $helper;
-
-	/** @var \phpbb\template\template */
-	protected $template;
-
-	/** @var \phpbb\user */
-	protected $user;
-
-	/** @var string phpBB root path */
-	protected $root_path;
-
-	/** @var string phpEx */
-	protected $php_ext;
+	/** @var \phpbb\collapsiblecategories\operator\operator */
+	protected $operator;
 
 	/**
 	* Constructor
 	*
-	* @param \phpbb\config\config                $config             Config object
-	* @param \phpbb\controller\helper            $helper             Controller helper object
-	* @param \phpbb\boardrules\operators\rule    $rule_operator      Rule operator object
-	* @param \phpbb\template\template            $template           Template object
-	* @param \phpbb\user                         $user               User object
-	* @param string                              $root_path          phpBB root path
-	* @param string                              $php_ext            phpEx
+	* @param \phpbb\request\request                             $request            Request object
+	* @param \phpbb\collapsiblecategories\operator\operator     $operator           Collapsiblecategories Operator object
 	* @access public
 	*/
-	public function __construct(\phpbb\config\config $config, \phpbb\controller\helper $helper, \phpbb\template\template $template, \phpbb\user $user, $root_path, $php_ext)
+	public function __construct(\phpbb\request\request $request, \phpbb\collapsiblecategories\operator\operator $operator)
 	{
-		$this->config = $config;
-		$this->helper = $helper;
-		$this->template = $template;
-		$this->user = $user;
-		$this->root_path = $root_path;
-		$this->php_ext = $php_ext;
+		$this->request = $request;
+		$this->operator = $operator;
 	}
 
 	/**
@@ -66,26 +45,13 @@ class controller implements main_interface
 	 */
 	public function handle($forum_id)
 	{
-		// If this is no ajax request, it is not supported, so we throw an exception
-		if (!$this->request->is_ajax())
+		// If this is no ajax request or the forum_id parameter is missing, we throw an exception. It is not supported.
+		if (!$this->request->is_ajax() || $forum_id == 0)
 		{
 			throw new \phpbb\exception\http_exception(403, 'NO_AUTH_OPERATION');
 		}
 
-		// When the route is called without a parameter, 0 is used. This is no valid request, so we throw an error here
-		if ($forum_id == 0)
-		{
-			throw new \phpbb\exception\http_exception(500, 'GENERAL_ERROR');
-		}
-
-		// Set a cookie
-		$response = $this->operator->set_cookie_categories($forum_id);
-
-		// Close the announcement for registered users
-		if ($this->user->data['is_registered'])
-		{
-			$response = $this->operator->set_user_categories($forum_id);
-		}
+		$response = $this->operator->set_user_categories($forum_id);
 
 		// Send a JSON response
 		return new \Symfony\Component\HttpFoundation\JsonResponse(array(
