@@ -30,7 +30,7 @@ interface operator_interface
 	/**
 	 * Set the user's collapsed category data in the database
 	 *
-	 * @param int $forum_id A forum identifier
+	 * @param string $forum_id A forum identifier
 	 *
 	 * @return bool True if user data was stored, false otherwise
 	 * @access public
@@ -49,7 +49,7 @@ interface operator_interface
 	/**
 	 * Set the user's collapsed category data in a cookie
 	 *
-	 * @param int $forum_id A forum identifier
+	 * @param string $forum_id A forum identifier
 	 *
 	 * @return bool True if cookie was stored, false otherwise
 	 * @access public
