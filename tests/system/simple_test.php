@@ -10,8 +10,6 @@
 
 namespace phpbb\collapsiblecategories\tests\system;
 
-require_once dirname(__FILE__) . '/../../../../../includes/functions.php';
-
 class simple_test extends \phpbb_test_case
 {
 	/** @var \PHPUnit_Framework_MockObject_MockObject */
@@ -41,15 +39,20 @@ class simple_test extends \phpbb_test_case
 			->getMock();
 	}
 
+	/**
+	 * Data set for test_ext
+	 *
+	 * @return array
+	 */
 	public function ext_test_data()
 	{
 		$req_version = '3.1.2';
 
 		return array(
 			// Versions less than the requirement
-			array(array_pop(explode('.', $req_version)), false),
-			array(array_pop(explode('.', $req_version)) . '.0', false),
-			array(array_pop(explode('.', $req_version)) . '.1', false),
+			array('3.1', false),
+			array('3.1.0', false),
+			array('3.1.1', false),
 
 			// Versions equal to or greater than the requirement
 			array($req_version, true),
@@ -63,6 +66,12 @@ class simple_test extends \phpbb_test_case
 	}
 
 	/**
+	 * Test the extension can only be enabled when the minimum
+	 * phpBB version requirement is satisfied.
+	 *
+	 * @param $version
+	 * @param $expected
+	 *
 	 * @dataProvider ext_test_data
 	 */
 	public function test_ext($version, $expected)
