@@ -67,8 +67,11 @@ class operator implements operator_interface
 	 */
 	public function set_user_categories($forum_id)
 	{
+		// Update the collapsed category data
+		$this->set_collapsed_categories($forum_id);
+
 		// TODO
-		// 1.if user is registered, update the db with serialized array of their collapsed forums
+		// 1.if user is registered, update the db with serialized array of collapsed category data
 		// 2.set their cookie too by calling set_cookie_categories()
 	}
 
@@ -87,8 +90,11 @@ class operator implements operator_interface
 	 */
 	public function set_cookie_categories($forum_id)
 	{
+		// Update the collapsed category data
+		$this->set_collapsed_categories($forum_id);
+
 		// TODO
-		// 1.update the cookie with json_encoded array of their collapsed forums
+		// 1.update the cookie with json_encoded array of collapsed category data
 	}
 
 	/**
