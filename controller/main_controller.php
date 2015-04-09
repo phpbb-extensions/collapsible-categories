@@ -10,7 +10,7 @@
 
 namespace phpbb\collapsiblecategories\controller;
 
-class controller implements main_interface
+class main_controller implements main_interface
 {
 	/** @var \phpbb\collapsiblecategories\operator\operator */
 	protected $operator;
@@ -21,8 +21,8 @@ class controller implements main_interface
 	/**
 	* Constructor
 	*
-	* @param \phpbb\collapsiblecategories\operator\operator     $operator           Collapsiblecategories Operator object
-	* @param \phpbb\request\request                             $request            Request object
+	* @param \phpbb\collapsiblecategories\operator\operator $operator Operator object
+	* @param \phpbb\request\request                         $request  Request object
 	* @access public
 	*/
 	public function __construct(\phpbb\collapsiblecategories\operator\operator $operator, \phpbb\request\request $request)
@@ -32,20 +32,11 @@ class controller implements main_interface
 	}
 
 	/**
-	 * This method processes AJAX requests for collapsible categories
-	 * when a user collapses/expands a category. Collapsed categories
-	 * will be stored to the user's db and cookie. Expanded categories
-	 * will be removed from the user's db and cookie.
-	 *
-	 * @param int $forum_id A forum identifier
-	 *
-	 * @throws \phpbb\exception\http_exception An http exception
-	 * @return \Symfony\Component\HttpFoundation\JsonResponse A Symfony JSON Response object
-	 * @access public
+	 * {@inheritdoc}
 	 */
 	public function handle($forum_id)
 	{
-		// If this is no ajax request or the forum_id parameter is missing, we throw an exception. It is not supported.
+		// Throw an exception for non-AJAX requests or if the forum_id is missing
 		if (!$this->request->is_ajax() || $forum_id == 0)
 		{
 			throw new \phpbb\exception\http_exception(403, 'NO_AUTH_OPERATION');
