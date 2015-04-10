@@ -10,6 +10,8 @@
 
 namespace phpbb\collapsiblecategories\tests\system;
 
+require_once dirname(__FILE__) . '/../../../../../includes/functions.php';
+
 class simple_test extends \phpbb_test_case
 {
 	/** @var \PHPUnit_Framework_MockObject_MockObject */
