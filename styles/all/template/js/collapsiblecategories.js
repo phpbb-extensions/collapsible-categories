@@ -35,7 +35,7 @@
 				.toggleClass('collapse-show collapse-hide')
 				.closest('.forabg')
 				.find('.topiclist.forums')
-				.slideToggle("fast");
+				.slideToggle('fast');
 		}
 	});
 
