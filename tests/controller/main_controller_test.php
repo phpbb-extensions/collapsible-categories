@@ -85,7 +85,11 @@ class main_controller_test extends \phpbb_test_case
 			array('', true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
 			array('0', true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
 			array(null, true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
-			array('fid_1', false, 403, 'NO_AUTH_OPERATION'), // not AJAX
+			array('foo 1', true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
+			array('\'foo 1\'', true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
+			array('foo%201', true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
+			array('?foo=\'+escape\(document.cookie\)\;\'', true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
+			array('foo_1', false, 403, 'NO_AUTH_OPERATION'), // not AJAX
 		);
 	}
 

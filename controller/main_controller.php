@@ -37,7 +37,7 @@ class main_controller implements main_interface
 	public function handle($forum_id)
 	{
 		// Throw an exception for non-AJAX requests or if the forum_id is missing
-		if (!$this->request->is_ajax() || !$forum_id)
+		if (!$this->request->is_ajax() || !$this->is_valid($forum_id))
 		{
 			throw new \phpbb\exception\http_exception(403, 'NO_AUTH_OPERATION');
 		}
@@ -49,5 +49,18 @@ class main_controller implements main_interface
 		return new \Symfony\Component\HttpFoundation\JsonResponse(array(
 			'success' => $response,
 		));
+	}
+
+	/**
+	 * Validate values containing only letters, numbers and underscores
+	 *
+	 * @param string $value Value to test
+	 *
+	 * @return bool true if valid, false if invalid
+	 * @access protected
+	 */
+	protected function is_valid($value)
+	{
+		return !empty($value) && preg_match('/^\w+$/', $value);
 	}
 }
