@@ -53,13 +53,15 @@ class simple_test extends \phpbb_test_case
 			array('3.1', false),
 			array('3.1.0', false),
 			array('3.1.1', false),
+			array('3.1.1.1', false),
+			array($req_version . '-A1', false),
+			array($req_version . '-RC1', false),
+			array($req_version . '-DEV', false),
 
 			// Versions equal to or greater than the requirement
 			array($req_version, true),
-			array($req_version . '-A1', true),
-			array($req_version . '-RC1', true),
-			array($req_version . '-DEV', true),
 			array($req_version . '-PL1', true),
+			array($req_version . '.1', true),
 			array('3.2', true),
 			array('3.2.0', true),
 		);
