@@ -20,12 +20,13 @@ namespace phpbb\collapsiblecategories;
 */
 class ext extends \phpbb\extension\base
 {
+	/** @var string Require phpBB 3.1.2 due to the updated INCLUDECSS syntax */
+	const PHPBB_MIN_VERSION = '3.1.2';
+
 	/**
 	 * Check whether or not the extension can be enabled.
 	 * The current phpBB version should meet or exceed
 	 * the minimum version required by this extension:
-	 *
-	 * Require phpBB 3.1.2 due to the updated INCLUDECSS syntax.
 	 *
 	 * @return bool
 	 * @access public
@@ -33,6 +34,6 @@ class ext extends \phpbb\extension\base
 	public function is_enableable()
 	{
 		$config = $this->container->get('config');
-		return phpbb_version_compare($config['version'], '3.1.2', '>=');
+		return phpbb_version_compare($config['version'], self::PHPBB_MIN_VERSION, '>=');
 	}
 }

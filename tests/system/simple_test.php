@@ -48,7 +48,8 @@ class simple_test extends \phpbb_test_case
 	 */
 	public function ext_test_data()
 	{
-		$req_version = '3.1.2';
+		// Use the required version constant defined in the ext class
+		$req_version = \phpbb\collapsiblecategories\ext::PHPBB_MIN_VERSION;
 
 		return array(
 			// Versions less than the requirement
