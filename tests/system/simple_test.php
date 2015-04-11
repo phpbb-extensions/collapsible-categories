@@ -27,15 +27,15 @@ class simple_test extends \phpbb_test_case
 	{
 		parent::setUp();
 
-		// Mock container
+		// Stub the container
 		$this->container = $this->getMock('\Symfony\Component\DependencyInjection\ContainerInterface');
 
-		// Mock ext finder and disable its constructor
+		// Stub the ext finder and disable its constructor
 		$this->extension_finder = $this->getMockBuilder('\phpbb\finder')
 			->disableOriginalConstructor()
 			->getMock();
 
-		// Mock migrator and disable its constructor
+		// Stub the migrator and disable its constructor
 		$this->migrator = $this->getMockBuilder('\phpbb\db\migrator')
 			->disableOriginalConstructor()
 			->getMock();

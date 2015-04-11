@@ -1,8 +1,8 @@
-(function ($) {  // Avoid conflicts with other libraries
+(function($) { // Avoid conflicts with other libraries
 
 	'use strict';
 
-	$('a.category[data-id] + .forabg').each(function () {
+	$('a.category[data-id] + .forabg').each(function() {
 		var $this = $(this),
 			id = $this.prev().attr('data-id'),
 			hidden = $this.prev().attr('data-hidden'),
@@ -29,16 +29,13 @@
 		}
 	});
 
-	phpbb.addAjaxCallback('phpbb_collapse', function (res) {
-		var $this = $(this),
-			forum = $this.attr('data-id');
+	phpbb.addAjaxCallback('phpbb_collapse', function(res) {
 		if (res.success) {
-			$this
+			$(this)
 				.toggleClass('collapse-show collapse-hide')
 				.closest('.forabg')
 				.find('.topiclist.forums')
-				.slideToggle("fast")
-			;
+				.slideToggle('fast');
 		}
 	});
 
