@@ -20,8 +20,8 @@ namespace phpbb\collapsiblecategories;
 */
 class ext extends \phpbb\extension\base
 {
-	/** @var string Require phpBB 3.1.2 due to the updated INCLUDECSS syntax */
-	const PHPBB_MIN_VERSION = '3.1.2';
+	/** @var string Require phpBB 3.1.3 due to the use of new exception classes */
+	const PHPBB_MIN_VERSION = '3.1.3';
 
 	/**
 	 * Check whether or not the extension can be enabled.
