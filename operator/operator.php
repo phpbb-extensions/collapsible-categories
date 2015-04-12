@@ -57,6 +57,18 @@ class operator implements operator_interface
 		// 1.get the categories by unserializing the user object data 'collapsible_categories'
 		// 2.if no categories found, call get_cookie_categories()
 		// 3.return the categories or an empty array
+
+		$collapsible_categories = array();
+		if (!empty($this->user->data['collapsible_categories']))
+		{
+			$collapsible_categories = (array) unserialize($this->user->data['collapsible_categories']);
+		}
+		else
+		{
+			$collapsible_categories = $this->get_cookie_categories();
+		}
+
+		return $collapsible_categories;
 	}
 
 	/**
@@ -70,6 +82,19 @@ class operator implements operator_interface
 		// TODO
 		// 1.if user is registered, update the db with serialized array of collapsed category data ($this->collapsed_categories)
 		// 2.set their cookie too by calling set_cookie_categories()
+
+		if ($this->user->data['is_registered'])
+		{
+			$sql = 'UPDATE ' . USERS_TABLE . '
+				SET collapsible_categories = ' . $this->db->sql_escape(serialize($this->collapsed_categories)) . '
+				WHERE user_id = ' . (int) $this->user->data['user_id'];
+			$this->db->sql_query($sql);
+		}
+
+		if (!$this->user->data['is_bot'])
+		{
+			$this->set_cookie_categories($forum_id);
+		}
 	}
 
 	/**
@@ -80,6 +105,16 @@ class operator implements operator_interface
 		// TODO
 		// 1.gets categories from the cookie (will need to be un-encoded by json decode and htmlspecialchars decode)
 		// 2.return categories or an empty array
+
+		$cookie_data = '';
+		$cookie_categories = array();
+		if ($this->request->is_set($this->config['cookie_name'] . '_ccat', \phpbb\request\request_interface::COOKIE))
+		{
+			$cookie_data = htmlspecialchars($this->request->variable($this->config['cookie_name'] . '_ccat', '', true, \phpbb\request\request_interface::COOKIE));
+			$cookie_categories = (array) json_decode($cookie_data);
+		}
+
+		return $cookie_categories;
 	}
 
 	/**
@@ -92,6 +127,8 @@ class operator implements operator_interface
 
 		// TODO
 		// 1.update the cookie with json_encoded array of collapsed category data ($this->collapsed_categories)
+
+		$this->user->set_cookie('ccat', json_encode($this->collapsed_categories), strtotime('+1 year'));
 	}
 
 	/**
