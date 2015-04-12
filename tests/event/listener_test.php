@@ -85,7 +85,7 @@ class listener_test extends \phpbb_test_case
 	/**
 	 * Test setup_collapsible_categories() is assigning the expected template vars
 	 */
-	public function test_setup_collapsible_categories()
+	public function test_init_collapsible_categories()
 	{
 		$this->set_listener();
 
@@ -97,9 +97,14 @@ class listener_test extends \phpbb_test_case
 			));
 
 		// Call the method
-		$this->listener->setup_collapsible_categories();
+		$this->listener->init_collapsible_categories();
 	}
 
+	/**
+	 * Data set for test_show_collapsible_categories
+	 *
+	 * @return array
+	 */
 	public function load_collapsible_categories_data()
 	{
 		return array(
@@ -139,13 +144,16 @@ class listener_test extends \phpbb_test_case
 	}
 
 	/**
+	 * Test test_show_collapsible_categories() is adding the expected
+	 * show/hide states for collapsed categories to the template data
+	 *
 	 * @param $collapsed_forums
 	 * @param $data_map
 	 * @param $expected
 	 *
 	 * @dataProvider load_collapsible_categories_data
 	 */
-	public function test_load_collapsible_categories($data_map, $collapsed_forums, $expected)
+	public function test_show_collapsible_categories($data_map, $collapsed_forums, $expected)
 	{
 		$this->set_listener();
 
@@ -158,7 +166,7 @@ class listener_test extends \phpbb_test_case
 			->will($this->returnValue($collapsed_forums));
 
 		// Call the method
-		$this->listener->load_collapsible_categories($data);
+		$this->listener->show_collapsible_categories($data);
 
 		// Assert the event data object is updated as expected
 		$this->assertSame($data['cat_row'], $expected);

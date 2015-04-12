@@ -29,6 +29,14 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\template\template */
 	protected $template;
 
+	/**
+	 * Constructor
+	 *
+	 * @param \phpbb\controller\helper                                 $helper
+	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator
+	 * @param \phpbb\template\template                                 $template
+	 * @access public
+	 */
 	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
 	{
 		$this->helper = $helper;
@@ -46,19 +54,33 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.display_forums_after'							=> 'setup_collapsible_categories',
-			'core.display_forums_modify_category_template_vars'	=> 'load_collapsible_categories',
+			'core.display_forums_after'							=> 'init_collapsible_categories',
+			'core.display_forums_modify_category_template_vars'	=> 'show_collapsible_categories',
 		);
 	}
 
-	public function setup_collapsible_categories()
+	/**
+	 * Assign initial collapsible categories template vars
+	 *
+	 * @return null
+	 * @access public
+	 */
+	public function init_collapsible_categories()
 	{
 		$this->template->assign_vars(array(
 			'UA_COLLAPSIBLE_CATEGORIES_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller'),
 		));
 	}
 
-	public function load_collapsible_categories($event)
+	/**
+	 * Set category display states
+	 *
+	 * @param object $event The event object
+	 *
+	 * @return null
+	 * @access public
+	 */
+	public function show_collapsible_categories($event)
 	{
 		if (!isset($this->categories))
 		{
