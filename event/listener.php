@@ -32,9 +32,9 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\controller\helper                                 $helper
-	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator
-	 * @param \phpbb\template\template                                 $template
+	 * @param \phpbb\controller\helper                                 $helper   Controller helper object
+	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
+	 * @param \phpbb\template\template                                 $template Template object
 	 * @access public
 	 */
 	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
