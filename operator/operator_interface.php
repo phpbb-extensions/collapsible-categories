@@ -51,7 +51,7 @@ interface operator_interface
 	 *
 	 * @param string $forum_id A forum identifier
 	 *
-	 * @return bool True if cookie was stored, false otherwise
+	 * @return bool True
 	 * @access public
 	 */
 	public function set_cookie_categories($forum_id);
