@@ -53,10 +53,16 @@ class operator implements operator_interface
 	 */
 	public function get_user_categories()
 	{
-		// TODO
-		// 1.get the categories by unserializing the user object data 'collapsible_categories'
-		// 2.if no categories found, call get_cookie_categories()
-		// 3.return the categories or an empty array
+		// Get categories from the user object
+		$collapsible_categories = (array) json_decode($this->user->data['collapsible_categories'], true);
+
+		if (empty($collapsible_categories))
+		{
+			// The user object had no categories, check for a cookie
+			$collapsible_categories = $this->get_cookie_categories();
+		}
+
+		return $collapsible_categories;
 	}
 
 	/**
@@ -67,9 +73,23 @@ class operator implements operator_interface
 		// Set the collapsed category data array
 		$this->set_collapsed_categories($forum_id);
 
-		// TODO
-		// 1.if user is registered, update the db with serialized array of collapsed category data ($this->collapsed_categories)
-		// 2.set their cookie too by calling set_cookie_categories()
+		// Update the db with json encoded array of collapsed category data
+		if ($this->user->data['is_registered'])
+		{
+			$sql = 'UPDATE ' . USERS_TABLE . "
+				SET collapsible_categories = '" . $this->db->sql_escape(json_encode($this->collapsed_categories)) . "'
+				WHERE user_id = " . (int) $this->user->data['user_id'];
+			$this->db->sql_query($sql);
+
+			// There was an error updating the user's data
+			if (!$this->db->sql_affectedrows())
+			{
+				return false;
+			}
+		}
+
+		// Set a cookie with the collapsed category data and return true
+		return $this->set_cookie_categories($forum_id);
 	}
 
 	/**
@@ -77,9 +97,11 @@ class operator implements operator_interface
 	 */
 	public function get_cookie_categories()
 	{
-		// TODO
-		// 1.gets categories from the cookie (will need to be un-encoded by json decode and htmlspecialchars decode)
-		// 2.return categories or an empty array
+		// Get categories from the cookie and htmlspecialchars decode it
+		$cookie_data = htmlspecialchars_decode($this->request->variable($this->config['cookie_name'] . '_ccat', '', true, \phpbb\request\request_interface::COOKIE));
+
+		// json decode the cookie data and return an array
+		return (array) json_decode($cookie_data, true);
 	}
 
 	/**
@@ -90,8 +112,11 @@ class operator implements operator_interface
 		// Set the collapsed category data array
 		$this->set_collapsed_categories($forum_id);
 
-		// TODO
-		// 1.update the cookie with json_encoded array of collapsed category data ($this->collapsed_categories)
+		// Update the cookie with json encoded array of collapsed category data
+		$this->user->set_cookie('ccat', json_encode($this->collapsed_categories), strtotime('+1 year'));
+
+		// As we are unable to check immediately if the cookie was set, return true anyway
+		return true;
 	}
 
 	/**
