@@ -1,4 +1,13 @@
 services:
+    phpbb.collapsiblecategories.listener:
+        class: phpbb\collapsiblecategories\event\listener
+        arguments:
+            - @controller.helper
+            - @phpbb.collapsiblecategories.operator
+            - @template
+        tags:
+            - { name: event.listener }
+
     phpbb.collapsiblecategories.controller:
         class: phpbb\collapsiblecategories\controller\main_controller
         arguments:
