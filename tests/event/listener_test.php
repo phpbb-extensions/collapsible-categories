@@ -79,6 +79,7 @@ class listener_test extends \phpbb_test_case
 		$this->assertEquals(array(
 			'core.display_forums_after',
 			'core.display_forums_modify_category_template_vars',
+			'core.display_forums_modify_template_vars',
 		), array_keys(\phpbb\collapsiblecategories\event\listener::getSubscribedEvents()));
 	}
 
@@ -140,6 +141,22 @@ class listener_test extends \phpbb_test_case
 				array('fid_1', 'fid_2', 'fid_3'),
 				array('FOO2' => 'BAR2', 'S_FORUM_HIDDEN' => false),
 			),
+			array( // Un-categorized forum 2 is not in the collapsed array
+				array(
+					'forum_row'	=> array(),
+					'row'		=> array('forum_id' => 2),
+				),
+				array(),
+				array('S_FORUM_HIDDEN' => false),
+			),
+			array( // Un-categorized forum 2 is in the collapsed array
+				array(
+					'forum_row'	=> array(),
+					'row'		=> array('forum_id' => 2),
+				),
+				array('fid_1', 'fid_2', 'fid_3'),
+				array('S_FORUM_HIDDEN' => true),
+			),
 		);
 	}
 
@@ -168,7 +185,10 @@ class listener_test extends \phpbb_test_case
 		// Call the method
 		$this->listener->show_collapsible_categories($data);
 
+		// Get the first array key name (cat_row or forum_row)
+		$forum_row = key($data_map);
+
 		// Assert the event data object is updated as expected
-		$this->assertSame($data['cat_row'], $expected);
+		$this->assertSame($data[$forum_row], $expected);
 	}
 }
