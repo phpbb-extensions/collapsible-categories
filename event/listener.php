@@ -89,8 +89,8 @@ class listener implements EventSubscriberInterface
 		}
 
 		$row = (isset($event['cat_row'])) ? 'cat_row' : 'forum_row';
-		$forum_row = $event[$row];
-		$forum_row += array('S_FORUM_HIDDEN' => in_array('fid_' . $event['row']['forum_id'], $this->categories));
-		$event[$row] = $forum_row;
+		$event_row = $event[$row];
+		$event_row += array('S_FORUM_HIDDEN' => in_array('fid_' . $event['row']['forum_id'], $this->categories));
+		$event[$row] = $event_row;
 	}
 }
