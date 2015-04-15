@@ -56,6 +56,7 @@ class listener implements EventSubscriberInterface
 		return array(
 			'core.display_forums_after'							=> 'init_collapsible_categories',
 			'core.display_forums_modify_category_template_vars'	=> 'show_collapsible_categories',
+			'core.display_forums_modify_template_vars'			=> 'show_collapsible_categories',
 		);
 	}
 
@@ -87,8 +88,9 @@ class listener implements EventSubscriberInterface
 			$this->categories = $this->operator->get_user_categories();
 		}
 
-		$cat_row = $event['cat_row'];
-		$cat_row += array('S_FORUM_HIDDEN' => in_array('fid_' . $event['row']['forum_id'], $this->categories));
-		$event['cat_row'] = $cat_row;
+		$row = (isset($event['cat_row'])) ? 'cat_row' : 'forum_row';
+		$forum_row = $event[$row];
+		$forum_row += array('S_FORUM_HIDDEN' => in_array('fid_' . $event['row']['forum_id'], $this->categories));
+		$event[$row] = $forum_row;
 	}
 }
