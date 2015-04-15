@@ -105,10 +105,10 @@ class listener_test extends \phpbb_test_case
 	 *
 	 * @return array
 	 */
-	public function load_collapsible_categories_data()
+	public function show_collapsible_categories_data()
 	{
 		return array(
-			array( // Forum 1 is not collapsed
+			array( // Forum 1 is not in the collapsed array
 				array(
 					'cat_row'	=> array(),
 					'row'		=> array('forum_id' => 1),
@@ -116,7 +116,7 @@ class listener_test extends \phpbb_test_case
 				array(),
 				array('S_FORUM_HIDDEN' => false),
 			),
-			array( // Forum 1 is collapsed
+			array( // Forum 1 is in the collapsed array
 				array(
 					'cat_row'	=> array(),
 					'row'		=> array('forum_id' => 1),
@@ -124,7 +124,7 @@ class listener_test extends \phpbb_test_case
 				array('fid_1', 'fid_2', 'fid_3'),
 				array('S_FORUM_HIDDEN' => true),
 			),
-			array( // Forum 9 is not collapsed (with additional template data mixed in)
+			array( // Forum 9 is not in the collapsed array (with additional template data mixed in)
 				array(
 					'cat_row'	=> array('FOO1' => 'BAR1'),
 					'row'		=> array('forum_id' => 9),
@@ -132,7 +132,7 @@ class listener_test extends \phpbb_test_case
 				array('fid_1', 'fid_2', 'fid_3'),
 				array('FOO1' => 'BAR1', 'S_FORUM_HIDDEN' => false),
 			),
-			array( // Forum 9 is not collapsed (with additional template data miced in)
+			array( // Forum 9 is not in the collapsed array (with additional template data mixed in)
 				array(
 					'cat_row'	=> array('FOO2' => 'BAR2'),
 					'row'		=> array('forum_id' => 9),
@@ -151,7 +151,7 @@ class listener_test extends \phpbb_test_case
 	 * @param $data_map
 	 * @param $expected
 	 *
-	 * @dataProvider load_collapsible_categories_data
+	 * @dataProvider show_collapsible_categories_data
 	 */
 	public function test_show_collapsible_categories($data_map, $collapsed_forums, $expected)
 	{
