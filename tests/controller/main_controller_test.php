@@ -33,6 +33,14 @@ class main_controller_test extends \phpbb_test_case
 			->method('is_ajax')
 			->will($this->returnValue($is_ajax));
 
+		// Override variable() to return value of link hash
+		$request->expects($this->any())
+			->method('variable')
+			->with($this->anything())
+			->will($this->returnValueMap(array(
+				array('hash', '', false, \phpbb\request\request_interface::REQUEST, generate_link_hash('collapsible_' . $forum_id))
+			)));
+
 		// Return an instance of the controller
 		return new \phpbb\collapsiblecategories\controller\main_controller($operator, $request);
 	}

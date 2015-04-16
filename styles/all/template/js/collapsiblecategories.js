@@ -2,10 +2,10 @@
 
 	'use strict';
 
-	$('a.category[data-id] + .forabg').each(function() {
+	$('a.category[data-collapse] + .forabg').each(function() {
 		var $this = $(this),
-			id = $this.prev().attr('data-id'),
 			hidden = $this.prev().attr('data-hidden'),
+			collapse = $this.prev().attr('data-collapse'),
 			$header = $this.find('li.header'),
 			$content = $this.find('.topiclist.forums');
 
@@ -17,7 +17,7 @@
 		var $button = $('<a>')
 			.addClass('collapse-btn collapse-' + ((hidden) ? 'show' : 'hide'))
 			.attr({
-				href: collapsible_categories_url + '/' + id,
+				href: collapse,
 				'data-ajax': 'phpbb_collapse',
 				'data-overlay': true
 			});

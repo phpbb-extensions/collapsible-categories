@@ -77,28 +77,9 @@ class listener_test extends \phpbb_test_case
 	public function test_getSubscribedEvents()
 	{
 		$this->assertEquals(array(
-			'core.display_forums_after',
 			'core.display_forums_modify_category_template_vars',
 			'core.display_forums_modify_template_vars',
 		), array_keys(\phpbb\collapsiblecategories\event\listener::getSubscribedEvents()));
-	}
-
-	/**
-	 * Test setup_collapsible_categories() is assigning the expected template vars
-	 */
-	public function test_init_collapsible_categories()
-	{
-		$this->set_listener();
-
-		// Set up expectations
-		$this->template->expects($this->once())
-			->method('assign_vars')
-			->with(array(
-				'UA_COLLAPSIBLE_CATEGORIES_URL' => 'phpbb_collapsiblecategories_main_controller#' . serialize(array()),
-			));
-
-		// Call the method
-		$this->listener->init_collapsible_categories();
 	}
 
 	/**
@@ -110,52 +91,72 @@ class listener_test extends \phpbb_test_case
 	{
 		return array(
 			array( // Forum 1 is not in the collapsed array
+				array(),
 				array(
 					'cat_row'	=> array(),
 					'row'		=> array('forum_id' => 1),
 				),
-				array(),
-				array('S_FORUM_HIDDEN' => false),
+				array(
+					'S_FORUM_HIDDEN' => false,
+					'U_COLLAPSE_URL' => 'phpbb_collapsiblecategories_main_controller#a:2:{s:8:"forum_id";s:5:"fid_1";s:4:"hash";s:8:"e454b5ca";}',
+				),
 			),
 			array( // Forum 1 is in the collapsed array
+				array('fid_1', 'fid_2', 'fid_3'),
 				array(
 					'cat_row'	=> array(),
 					'row'		=> array('forum_id' => 1),
 				),
-				array('fid_1', 'fid_2', 'fid_3'),
-				array('S_FORUM_HIDDEN' => true),
+				array(
+					'S_FORUM_HIDDEN' => true,
+					'U_COLLAPSE_URL' => 'phpbb_collapsiblecategories_main_controller#a:2:{s:8:"forum_id";s:5:"fid_1";s:4:"hash";s:8:"e454b5ca";}',
+				),
 			),
-			array( // Forum 9 is not in the collapsed array (with additional template data mixed in)
+			array( // Forum 1 is not in the collapsed array (with additional template data mixed in)
+				array('fid_2', 'fid_3'),
 				array(
 					'cat_row'	=> array('FOO1' => 'BAR1'),
-					'row'		=> array('forum_id' => 9),
+					'row'		=> array('forum_id' => 1),
 				),
-				array('fid_1', 'fid_2', 'fid_3'),
-				array('FOO1' => 'BAR1', 'S_FORUM_HIDDEN' => false),
+				array(
+					'FOO1' => 'BAR1',
+					'S_FORUM_HIDDEN' => false,
+					'U_COLLAPSE_URL' => 'phpbb_collapsiblecategories_main_controller#a:2:{s:8:"forum_id";s:5:"fid_1";s:4:"hash";s:8:"e454b5ca";}',
+				),
 			),
-			array( // Forum 9 is not in the collapsed array (with additional template data mixed in)
+			array( // Forum 1 is not in the collapsed array (with additional template data mixed in)
+				array('fid_2', 'fid_3'),
 				array(
 					'cat_row'	=> array('FOO2' => 'BAR2'),
-					'row'		=> array('forum_id' => 9),
+					'row'		=> array('forum_id' => 1),
 				),
-				array('fid_1', 'fid_2', 'fid_3'),
-				array('FOO2' => 'BAR2', 'S_FORUM_HIDDEN' => false),
-			),
-			array( // Un-categorized forum 2 is not in the collapsed array
 				array(
-					'forum_row'	=> array(),
-					'row'		=> array('forum_id' => 2),
+					'FOO2' => 'BAR2',
+					'S_FORUM_HIDDEN' => false,
+					'U_COLLAPSE_URL' => 'phpbb_collapsiblecategories_main_controller#a:2:{s:8:"forum_id";s:5:"fid_1";s:4:"hash";s:8:"e454b5ca";}',
 				),
+			),
+			array( // Un-categorized forum 1 is not in the collapsed array
 				array(),
-				array('S_FORUM_HIDDEN' => false),
-			),
-			array( // Un-categorized forum 2 is in the collapsed array
 				array(
 					'forum_row'	=> array(),
-					'row'		=> array('forum_id' => 2),
+					'row'		=> array('forum_id' => 1),
 				),
+				array(
+					'S_FORUM_HIDDEN' => false,
+					'U_COLLAPSE_URL' => 'phpbb_collapsiblecategories_main_controller#a:2:{s:8:"forum_id";s:5:"fid_1";s:4:"hash";s:8:"e454b5ca";}',
+				),
+			),
+			array( // Un-categorized forum 1 is in the collapsed array
 				array('fid_1', 'fid_2', 'fid_3'),
-				array('S_FORUM_HIDDEN' => true),
+				array(
+					'forum_row'	=> array(),
+					'row'		=> array('forum_id' => 1),
+				),
+				array(
+					'S_FORUM_HIDDEN' => true,
+					'U_COLLAPSE_URL' => 'phpbb_collapsiblecategories_main_controller#a:2:{s:8:"forum_id";s:5:"fid_1";s:4:"hash";s:8:"e454b5ca";}',
+				),
 			),
 		);
 	}
@@ -164,13 +165,13 @@ class listener_test extends \phpbb_test_case
 	 * Test test_show_collapsible_categories() is adding the expected
 	 * show/hide states for collapsed categories to the template data
 	 *
-	 * @param $collapsed_forums
 	 * @param $data_map
+	 * @param $collapsed_forums
 	 * @param $expected
 	 *
 	 * @dataProvider show_collapsible_categories_data
 	 */
-	public function test_show_collapsible_categories($data_map, $collapsed_forums, $expected)
+	public function test_show_collapsible_categories($collapsed_forums, $data_map, $expected)
 	{
 		$this->set_listener();
 
@@ -189,6 +190,6 @@ class listener_test extends \phpbb_test_case
 		$forum_row = key($data_map);
 
 		// Assert the event data object is updated as expected
-		$this->assertSame($data[$forum_row], $expected);
+		$this->assertSame($expected, $data[$forum_row]);
 	}
 }
