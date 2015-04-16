@@ -79,7 +79,7 @@ class listener implements EventSubscriberInterface
 		$event_row = $event[$row];
 		$event_row += array(
 			'S_FORUM_HIDDEN' => in_array($fid, $this->categories),
-			'U_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid"))),
+			'U_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
 		);
 		$event[$row] = $event_row;
 	}
