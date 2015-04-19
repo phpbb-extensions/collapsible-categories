@@ -20,9 +20,6 @@ class listener implements EventSubscriberInterface
 	/** @var array Array of collapsed forum category identifiers */
 	protected $categories;
 
-	/** @var \phpbb\user */
-	protected $user;
-
 	/** @var \phpbb\controller\helper */
 	protected $helper;
 
@@ -32,16 +29,19 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\template\template */
 	protected $template;
 
+	/** @var \phpbb\user */
+	protected $user;
+
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\user                                              $user     User object
 	 * @param \phpbb\controller\helper                                 $helper   Controller helper object
 	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
 	 * @param \phpbb\template\template                                 $template Template object
+	 * @param \phpbb\user                                              $user     User object
 	 * @access public
 	 */
-	public function __construct(\phpbb\user $user, \phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
+	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template, \phpbb\user $user)
 	{
 		$this->user = $user;
 		$this->helper = $helper;
