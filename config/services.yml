@@ -2,6 +2,7 @@ services:
     phpbb.collapsiblecategories.listener:
         class: phpbb\collapsiblecategories\event\listener
         arguments:
+            - @user
             - @controller.helper
             - @phpbb.collapsiblecategories.operator
             - @template

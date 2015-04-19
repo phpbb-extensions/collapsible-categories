@@ -20,6 +20,9 @@ class listener implements EventSubscriberInterface
 	/** @var array Array of collapsed forum category identifiers */
 	protected $categories;
 
+	/** @var \phpbb\user */
+	protected $user;
+
 	/** @var \phpbb\controller\helper */
 	protected $helper;
 
@@ -32,13 +35,15 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Constructor
 	 *
+	 * @param \phpbb\user                                              $user     User object
 	 * @param \phpbb\controller\helper                                 $helper   Controller helper object
 	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
 	 * @param \phpbb\template\template                                 $template Template object
 	 * @access public
 	 */
-	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
+	public function __construct(\phpbb\user $user, \phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
 	{
+		$this->user = $user;
 		$this->helper = $helper;
 		$this->operator = $operator;
 		$this->template = $template;
@@ -82,6 +87,9 @@ class listener implements EventSubscriberInterface
 	 */
 	public function show_collapsible_categories($event)
 	{
+		// Add collapsible-categories language file
+		$this->user->add_lang_ext('phpbb/collapsiblecategories', 'collapsiblecategories');
+
 		if (!isset($this->categories))
 		{
 			$this->categories = $this->operator->get_user_categories();
