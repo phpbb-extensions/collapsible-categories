@@ -165,8 +165,8 @@ class listener_test extends \phpbb_test_case
 	 * Test test_show_collapsible_categories() is adding the expected
 	 * show/hide states for collapsed categories to the template data
 	 *
-	 * @param $data_map
 	 * @param $collapsed_forums
+	 * @param $data_map
 	 * @param $expected
 	 *
 	 * @dataProvider show_collapsible_categories_data
