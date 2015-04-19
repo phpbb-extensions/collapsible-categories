@@ -148,19 +148,13 @@ class listener_test extends \phpbb_test_case
 	{
 		$this->set_listener();
 
-		$dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
-		$dispatcher->addListener('core.user_setup', array($this->listener, 'load_language_on_setup'));
+		$event = new \phpbb\event\data(array('lang_set_ext' => $lang_set_ext));
 
-		$event_data = array('lang_set_ext');
-		$event = new \phpbb\event\data(compact($event_data));
-		$dispatcher->dispatch('core.user_setup', $event);
-
-		$lang_set_ext = $event->get_data_filtered($event_data);
-		$lang_set_ext = $lang_set_ext['lang_set_ext'];
+		$this->listener->load_language_on_setup($event);
 
 		foreach ($expected_contains as $expected)
 		{
-			$this->assertContains($expected, $lang_set_ext);
+			$this->assertContains($expected, $event['lang_set_ext']);
 		}
 	}
 
