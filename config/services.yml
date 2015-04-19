@@ -5,7 +5,6 @@ services:
             - @controller.helper
             - @phpbb.collapsiblecategories.operator
             - @template
-            - @user
         tags:
             - { name: event.listener }
 

@@ -29,21 +29,16 @@ class listener implements EventSubscriberInterface
 	/** @var \phpbb\template\template */
 	protected $template;
 
-	/** @var \phpbb\user */
-	protected $user;
-
 	/**
 	 * Constructor
 	 *
 	 * @param \phpbb\controller\helper                                 $helper   Controller helper object
 	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
 	 * @param \phpbb\template\template                                 $template Template object
-	 * @param \phpbb\user                                              $user     User object
 	 * @access public
 	 */
-	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template, \phpbb\user $user)
+	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
 	{
-		$this->user = $user;
 		$this->helper = $helper;
 		$this->operator = $operator;
 		$this->template = $template;
@@ -59,6 +54,7 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
+			'core.user_setup'									=> 'load_language_on_setup',
 			'core.display_forums_after'							=> 'init_collapsible_categories',
 			'core.display_forums_modify_category_template_vars'	=> 'show_collapsible_categories',
 		);
@@ -78,6 +74,23 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
+	 * Load common language files during user setup
+	 *
+	 * @param object $event The event object
+	 * @return null
+	 * @access public
+	 */
+	public function load_language_on_setup($event)
+	{
+		$lang_set_ext = $event['lang_set_ext'];
+		$lang_set_ext[] = array(
+			'ext_name' => 'phpbb/collapsiblecategories',
+			'lang_set' => 'collapsiblecategories',
+		);
+		$event['lang_set_ext'] = $lang_set_ext;
+	}
+
+	/**
 	 * Set category display states
 	 *
 	 * @param object $event The event object
@@ -87,9 +100,6 @@ class listener implements EventSubscriberInterface
 	 */
 	public function show_collapsible_categories($event)
 	{
-		// Add collapsible-categories language file
-		$this->user->add_lang_ext('phpbb/collapsiblecategories', 'collapsiblecategories');
-
 		if (!isset($this->categories))
 		{
 			$this->categories = $this->operator->get_user_categories();
