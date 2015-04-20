@@ -77,9 +77,67 @@ class listener_test extends \phpbb_test_case
 	public function test_getSubscribedEvents()
 	{
 		$this->assertEquals(array(
+			'core.user_setup',
 			'core.display_forums_modify_category_template_vars',
 			'core.display_forums_modify_template_vars',
 		), array_keys(\phpbb\collapsiblecategories\event\listener::getSubscribedEvents()));
+	}
+
+	/**
+	 * Data set for test_load_language_on_setup
+	 *
+	 * @return array Array of test data
+	 */
+	public function load_language_on_setup_data()
+	{
+		return array(
+			array(
+				array(),
+				array(
+					array(
+						'ext_name' => 'phpbb/collapsiblecategories',
+						'lang_set' => 'collapsiblecategories',
+					),
+				),
+			),
+			array(
+				array(
+					array(
+						'ext_name' => 'foo/bar',
+						'lang_set' => 'foobar',
+					),
+				),
+				array(
+					array(
+						'ext_name' => 'foo/bar',
+						'lang_set' => 'foobar',
+					),
+					array(
+						'ext_name' => 'phpbb/collapsiblecategories',
+						'lang_set' => 'collapsiblecategories',
+					),
+				),
+			),
+		);
+	}
+
+	/**
+	 * Test the load_language_on_setup event
+	 *
+	 * @dataProvider load_language_on_setup_data
+	 */
+	public function test_load_language_on_setup($lang_set_ext, $expected_contains)
+	{
+		$this->set_listener();
+
+		$event = new \phpbb\event\data(array('lang_set_ext' => $lang_set_ext));
+
+		$this->listener->load_language_on_setup($event);
+
+		foreach ($expected_contains as $expected)
+		{
+			$this->assertContains($expected, $event['lang_set_ext']);
+		}
 	}
 
 	/**
