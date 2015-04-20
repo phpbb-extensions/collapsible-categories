@@ -2,29 +2,13 @@
 
 	'use strict';
 
-	$('a.category[data-id] + .forabg').each(function() {
+	$('a.collapse-btn').each(function() {
 		var $this = $(this),
-			$prev = $this.prev(),
-			id = $prev.attr('data-id'),
-			hidden = $prev.attr('data-hidden'),
-			tooltip = $prev.attr('data-tooltip'),
-			$header = $this.find('li.header'),
-			$content = $this.find('.topiclist.forums');
+			hidden = $this.attr('data-hidden'),
+			$content = $this.closest('.forabg').find('.topiclist.forums');
 
-		if (!$header.length || !$content.length) {
-			return;
-		}
-
-		// Add button
-		var $button = $('<a>')
-			.addClass('collapse-btn collapse-' + ((hidden) ? 'show' : 'hide'))
-			.attr({
-				href: collapsible_categories_url + '/' + id,
-				title: tooltip,
-				'data-ajax': 'phpbb_collapse',
-				'data-overlay': true
-			});
-		$header.append($button);
+		// Unhide the collapse buttons (makes using them JS dependent)
+		$this.show();
 
 		// Hide hidden forums on load
 		if (hidden) {

@@ -1,8 +1,3 @@
-<!-- IF forumrow.S_IS_CAT -->
-	<a class="category<!-- IF forumrow.S_FORUM_HIDDEN --> hidden-category<!-- ENDIF -->"
-		id="category{forumrow.FORUM_ID}"
-		data-id="fid_{forumrow.FORUM_ID}"
-		data-hidden="{forumrow.S_FORUM_HIDDEN}"
-		data-tooltip="{L_COLLAPSIBLE_CATEGORIES_TITLE}"
-		style="display: none; height: 0"></a>
-<!-- ENDIF -->
+{% if forumrow.S_IS_CAT or forumrow.S_FIRST_ROW or forumrow.S_NO_CAT %}
+	<a class="category{% if forumrow.S_FORUM_HIDDEN %} hidden-category{% endif %}" id="category{{ forumrow.FORUM_ID }}" style="display: none; height: 0"></a>
+{% endif %}
