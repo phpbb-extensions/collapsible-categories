@@ -57,6 +57,7 @@ class listener implements EventSubscriberInterface
 			'core.user_setup'									=> 'load_language_on_setup',
 			'core.display_forums_after'							=> 'init_collapsible_categories',
 			'core.display_forums_modify_category_template_vars'	=> 'show_collapsible_categories',
+			'core.user_add_modify_data'							=> 'set_default_value_on_registration',
 		);
 	}
 
@@ -108,5 +109,20 @@ class listener implements EventSubscriberInterface
 		$cat_row = $event['cat_row'];
 		$cat_row += array('S_FORUM_HIDDEN' => in_array('fid_' . $event['row']['forum_id'], $this->categories));
 		$event['cat_row'] = $cat_row;
+	}
+
+	/**
+	 * Set default value for the 'collapsible_categories' db field on user registration
+	 *
+	 * @param object $event The event object
+	 *
+	 * @return null
+	 * @access public
+	 */
+	public function set_default_value_on_registration($event)
+	{
+		$sql_ary = $event['sql_ary'];
+		$sql_ary += array('collapsible_categories' => '');
+		$event['sql_ary'] = $sql_ary;
 	}
 }

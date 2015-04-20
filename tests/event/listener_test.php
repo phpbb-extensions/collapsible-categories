@@ -80,6 +80,7 @@ class listener_test extends \phpbb_test_case
 			'core.user_setup',
 			'core.display_forums_after',
 			'core.display_forums_modify_category_template_vars',
+			'core.user_add_modify_data',
 		), array_keys(\phpbb\collapsiblecategories\event\listener::getSubscribedEvents()));
 	}
 
