@@ -36,8 +36,8 @@ class main_controller implements main_interface
 	 */
 	public function handle($forum_id)
 	{
-		// Throw an exception for non-AJAX requests or if the forum_id is missing
-		if (!$this->request->is_ajax() || !$this->is_valid($forum_id))
+		// Throw an exception for non-AJAX requests or invalid link requests
+		if (!$this->request->is_ajax() || !$this->is_valid($forum_id) || !check_link_hash($this->request->variable('hash', ''), 'collapsible_' . $forum_id))
 		{
 			throw new \phpbb\exception\http_exception(403, 'NO_AUTH_OPERATION');
 		}
