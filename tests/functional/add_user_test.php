@@ -26,8 +26,8 @@ class add_user_test extends \phpbb_functional_test_case
 	}
 
 	/**
-	 * Test adding a new user. We need to inserts on the user table do not
-	 * fail due to the TEXT column we have added with a null default value.
+	 * Test adding a new user. We need to test that inserts on the user table
+	 * do not fail due to the TEXT column we added with a null default value.
 	 */
 	public function test_add_user()
 	{
@@ -35,7 +35,7 @@ class add_user_test extends \phpbb_functional_test_case
 		$this->admin_login();
 		$this->add_lang('acp/users');
 
-		// Assert a user was successfully created
+		// Assert a user is successfully created
 		$this->assertGreaterThan(0, $this->create_user('testuser'));
 	}
 }
