@@ -46,6 +46,11 @@
 		"display-name": "Collapsible Forum Categories",
 		"soft-require": {
 			"phpbb/phpbb": ">=3.1.3,<3.2.*@dev"
+		},
+		"version-check": {
+			"host": "version.phpbb.com",
+			"directory": "/phpbb-extensions",
+			"filename": "collapsible_categories_versions.json"
 		}
 	}
 }
