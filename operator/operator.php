@@ -161,6 +161,6 @@ class operator implements operator_interface
 		}
 
 		// Enforce unique array values
-		return array_unique($array);
+		return array_values(array_unique($array));
 	}
 }
