@@ -49,7 +49,7 @@ class m1_schema extends \phpbb\db\migration\migration
 		return array(
 			'add_columns'	=> array(
 				$this->table_prefix . 'users'	=> array(
-					'collapsible_categories'	=> array('TEXT', ''),
+					'collapsible_categories'	=> array('TEXT', null),
 				),
 			),
 		);
