@@ -17,12 +17,12 @@ env:
     - EPV="1"          # Should we run EPV (Extension Pre Validator) on your code?
     - PHPBB_BRANCH="ticket/13516"
 
-branches:
-  only:
-    - master
-    - develop
-    - /^develop-.*$/
-    - /^release-.*$/
+#branches:
+#  only:
+#    - master
+#    - develop
+#    - /^develop-.*$/
+#    - /^release-.*$/
 
 install:
   - travis_retry composer self-update
