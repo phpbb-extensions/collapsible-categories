@@ -1,5 +1,6 @@
 /* Hide the forums of a hidden category */
 .hidden-category,
+.hidden-category + .forabg .collapsible,
 .hidden-category + .forabg .topiclist.forums {
 	display: none;
 }

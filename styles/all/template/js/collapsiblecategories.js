@@ -2,12 +2,17 @@
 
 	'use strict';
 
+	// Get the collapsible element (has class .topiclist.forums OR .collapsible)
+	$.fn.getCollapsible = function() {
+		return this.closest('.forabg').find('.topiclist.forums, .collapsible').eq(0);
+	};
+
 	$('a.collapse-btn').each(function() {
 		var $this = $(this),
 			hidden = $this.attr('data-hidden'),
-			$content = $this.closest('.forabg').find('.topiclist.forums');
+			$content = $this.getCollapsible();
 
-		// Unhide the collapse buttons (makes using them JS dependent)
+		// Unhide the collapse buttons (makes them JS dependent)
 		$this.show();
 
 		// Hide hidden forums on load
@@ -20,12 +25,11 @@
 		if (res.success) {
 			$(this)
 				.toggleClass('collapse-show collapse-hide')
-				.closest('.forabg')
-				.find('.topiclist.forums')
+				.getCollapsible()
 				.stop(true, true)
-				.slideToggle('fast');
+				.slideToggle('fast')
+			;
 		}
 	});
 
 })(jQuery); // Avoid conflicts with other libraries
-
