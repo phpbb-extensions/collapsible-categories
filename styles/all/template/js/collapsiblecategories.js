@@ -12,6 +12,11 @@
 			hidden = $this.attr('data-hidden'),
 			$content = $this.getCollapsible();
 
+		// Return if no collapsible content could be found
+		if (!$content.length) {
+			return;
+		}
+
 		// Unhide the collapse buttons (makes them JS dependent)
 		$this.show();
 
