@@ -21,7 +21,7 @@ namespace phpbb\collapsiblecategories;
 class ext extends \phpbb\extension\base
 {
 	/** @var string Require phpBB 3.1.5 due to the use of new template events */
-	const PHPBB_MIN_VERSION = '3.1.4';
+	const PHPBB_MIN_VERSION = '3.1.5-dev';
 
 	/**
 	 * Check whether or not the extension can be enabled.
@@ -33,6 +33,6 @@ class ext extends \phpbb\extension\base
 	 */
 	public function is_enableable()
 	{
-		return phpbb_version_compare(PHPBB_VERSION, self::PHPBB_MIN_VERSION, '>');
+		return phpbb_version_compare(PHPBB_VERSION, self::PHPBB_MIN_VERSION, '>=');
 	}
 }
