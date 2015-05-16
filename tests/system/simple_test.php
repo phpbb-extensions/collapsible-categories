@@ -81,8 +81,6 @@ class simple_test extends \phpbb_test_case
 	 */
 	public function test_ext($version, $expected)
 	{
-		$this->markTestSkipped('Skip this test until phpBB 3.1.5 is released');
-
 		// Instantiate config object and set config version
 		$config = new \phpbb\config\config(array(
 			'version' => $version,
