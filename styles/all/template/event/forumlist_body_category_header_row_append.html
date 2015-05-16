@@ -1,0 +1,9 @@
+{% if not S_IS_BOT %}
+	<a href="{{ forumrow.U_COLLAPSE_URL }}"
+	   class="collapse-btn collapse-{% if forumrow.S_FORUM_HIDDEN %}show{% else %}hide{% endif %}"
+	   data-hidden="{{ forumrow.S_FORUM_HIDDEN }}"
+	   data-ajax="phpbb_collapse"
+	   data-overlay="true"
+	   title="{{ lang('COLLAPSIBLE_CATEGORIES_TITLE') }}"
+	   style="display: none; line-height: 0;"></a>
+{% endif %}

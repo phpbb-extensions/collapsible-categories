@@ -2,29 +2,23 @@
 
 	'use strict';
 
-	$('a.category[data-collapse] + .forabg').each(function() {
-		var $this = $(this),
-			$prev = $this.prev(),
-			hidden = $prev.attr('data-hidden'),
-			collapse = $prev.attr('data-collapse'),
-			tooltip = $prev.attr('data-tooltip'),
-			$header = $this.find('li.header'),
-			$content = $this.find('.topiclist.forums');
+	// Get the collapsible element (has class .topiclist.forums OR .collapsible)
+	$.fn.getCollapsible = function() {
+		return this.closest('.forabg').find('.topiclist.forums, .collapsible').eq(0);
+	};
 
-		if (!$header.length || !$content.length) {
+	$('a.collapse-btn').each(function() {
+		var $this = $(this),
+			hidden = $this.attr('data-hidden'),
+			$content = $this.getCollapsible();
+
+		// Return if no collapsible content could be found
+		if (!$content.length) {
 			return;
 		}
 
-		// Add button
-		var $button = $('<a>')
-			.addClass('collapse-btn collapse-' + ((hidden) ? 'show' : 'hide'))
-			.attr({
-				href: collapse,
-				title: tooltip,
-				'data-ajax': 'phpbb_collapse',
-				'data-overlay': true
-			});
-		$header.append($button);
+		// Unhide the collapse buttons (makes them JS dependent)
+		$this.show();
 
 		// Hide hidden forums on load
 		if (hidden) {
@@ -36,11 +30,11 @@
 		if (res.success) {
 			$(this)
 				.toggleClass('collapse-show collapse-hide')
-				.closest('.forabg')
-				.find('.topiclist.forums')
-				.slideToggle('fast');
+				.getCollapsible()
+				.stop(true, true)
+				.slideToggle('fast')
+			;
 		}
 	});
 
 })(jQuery); // Avoid conflicts with other libraries
-
