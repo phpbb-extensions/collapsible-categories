@@ -1,14 +1,17 @@
 /* Hide the forums of a hidden category */
-.hidden-category + .forabg .topiclist.forums { display: none; }
+.hidden-category,
+.hidden-category + .forabg .collapsible,
+.hidden-category + .forabg .topiclist.forums {
+	display: none;
+}
 
 /* Collapse button */
 a.collapse-btn {
 	margin: -20px 0 0 0;
 	background-color: #eef5f9; /* Button bg color */
 	border: 1px solid #505C65; /* Button border color */
-	display: inline-block;
+	display: block;
 	position: relative;
-	vertical-align: top;
 	box-sizing: border-box;
 	float: right;
 }
