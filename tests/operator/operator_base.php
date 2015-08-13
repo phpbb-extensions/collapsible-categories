@@ -21,7 +21,7 @@ class operator_base extends \phpbb_database_test_case
 	/** @var \phpbb\request\request */
 	protected $request;
 
-	/** @var \phpbb\user */
+	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\user */
 	protected $user;
 
 	/** @var \phpbb\collapsiblecategories\operator\operator */

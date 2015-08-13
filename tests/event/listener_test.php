@@ -15,13 +15,13 @@ class listener_test extends \phpbb_test_case
 	/** @var \phpbb\collapsiblecategories\event\listener */
 	protected $listener;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject */
+	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\controller\helper */
 	protected $controller_helper;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject */
+	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator_interface */
 	protected $operator;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject */
+	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\template\template */
 	protected $template;
 
 	/**
@@ -123,6 +123,9 @@ class listener_test extends \phpbb_test_case
 
 	/**
 	 * Test the load_language_on_setup event
+	 *
+	 * @param $lang_set_ext
+	 * @param $expected_contains
 	 *
 	 * @dataProvider load_language_on_setup_data
 	 */
