@@ -14,7 +14,7 @@ class main_controller_test extends \phpbb_test_case
 {
 	public function get_controller($forum_id, $is_ajax = false, $result = false)
 	{
-		// Stub the collapsible categories operator
+		/** @var $operator \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator */
 		$operator = $this->getMockBuilder('\phpbb\collapsiblecategories\operator\operator')
 			->disableOriginalConstructor()
 			->getMock();
@@ -25,7 +25,7 @@ class main_controller_test extends \phpbb_test_case
 			->with($forum_id)
 			->will($this->returnValue($result));
 
-		// Stub the request class
+		/** @var $request \PHPUnit_Framework_MockObject_MockObject|\phpbb\request\request */
 		$request = $this->getMock('\phpbb\request\request');
 
 		// Override is_ajax() to return value of $is_ajax
