@@ -30,7 +30,7 @@ You can install this on the latest release of phpBB 3.1 by following the steps b
 
 ## Translations
 
-* Translations should be posted to the [Board Rules topic at phpBB.com](https://www.phpbb.com/customise/db/extension/boardrules/support/topic/130746). We accept pull requests for translation corrections, but we do not accept pull requests for new translations.
+* Translations should be posted to the [Collapsible Categories topic at phpBB.com](https://www.phpbb.com/customise/db/extension/collapsible_forum_categories/support/topic/148791). We accept pull requests for translation corrections, but we do not accept pull requests for new translations.
 
 ## Adding Collapsible Categories to Extensions
 
