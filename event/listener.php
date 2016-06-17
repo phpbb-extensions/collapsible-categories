@@ -63,7 +63,7 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Load common language files during user setup
 	 *
-	 * @param object $event The event object
+	 * @param \phpbb\event\data $event The event object
 	 * @return null
 	 * @access public
 	 */
@@ -80,7 +80,7 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Set category display states
 	 *
-	 * @param object $event The event object
+	 * @param \phpbb\event\data $event The event object
 	 *
 	 * @return null
 	 * @access public
