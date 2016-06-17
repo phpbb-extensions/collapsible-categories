@@ -10,7 +10,7 @@
 
 namespace phpbb\collapsiblecategories\tests\system;
 
-require_once dirname(__FILE__) . '/../../../../../includes/functions.php';
+require_once __DIR__ . '/../../../../../includes/functions.php';
 
 class simple_test extends \phpbb_test_case
 {

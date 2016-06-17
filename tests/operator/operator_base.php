@@ -34,7 +34,7 @@ class operator_base extends \phpbb_database_test_case
 
 	public function getDataSet()
 	{
-		return $this->createXMLDataSet(dirname(__FILE__) . '/fixtures/users.xml');
+		return $this->createXMLDataSet(__DIR__ . '/fixtures/users.xml');
 	}
 
 	protected function setUp()
@@ -66,7 +66,7 @@ class operator_base extends \phpbb_database_test_case
 	public function set_user($user_id, $data)
 	{
 		$this->user->data['user_id'] = $user_id;
-		$this->user->data['is_registered'] = ($user_id > 1) ? true : false;
+		$this->user->data['is_registered'] = $user_id > 1;
 		$this->user->data['collapsible_categories'] = json_encode($data);
 	}
 
