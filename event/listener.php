@@ -63,7 +63,7 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Load common language files during user setup
 	 *
-	 * @param object $event The event object
+	 * @param \phpbb\event\data $event The event object
 	 * @return null
 	 * @access public
 	 */
@@ -80,7 +80,7 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Set category display states
 	 *
-	 * @param object $event The event object
+	 * @param \phpbb\event\data $event The event object
 	 *
 	 * @return null
 	 * @access public
@@ -93,12 +93,12 @@ class listener implements EventSubscriberInterface
 		}
 
 		$fid = 'fid_' . $event['row']['forum_id'];
-		$row = (isset($event['cat_row'])) ? 'cat_row' : 'forum_row';
+		$row = isset($event['cat_row']) ? 'cat_row' : 'forum_row';
 		$event_row = $event[$row];
-		$event_row += array(
+		$event_row = array_merge($event_row, array(
 			'S_FORUM_HIDDEN' => in_array($fid, $this->categories),
 			'U_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
-		);
+		));
 		$event[$row] = $event_row;
 	}
 }
