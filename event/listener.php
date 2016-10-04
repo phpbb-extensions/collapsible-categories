@@ -64,7 +64,7 @@ class listener implements EventSubscriberInterface
 	 * Load common language files during user setup
 	 *
 	 * @param \phpbb\event\data $event The event object
-	 * @return null
+	 * @return void
 	 * @access public
 	 */
 	public function load_language_on_setup($event)
@@ -82,7 +82,7 @@ class listener implements EventSubscriberInterface
 	 *
 	 * @param \phpbb\event\data $event The event object
 	 *
-	 * @return null
+	 * @return void
 	 * @access public
 	 */
 	public function show_collapsible_categories($event)
