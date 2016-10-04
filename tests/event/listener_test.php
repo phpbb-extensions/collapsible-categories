@@ -124,8 +124,8 @@ class listener_test extends \phpbb_test_case
 	/**
 	 * Test the load_language_on_setup event
 	 *
-	 * @param $lang_set_ext
-	 * @param $expected_contains
+	 * @param array $lang_set_ext
+	 * @param array $expected_contains
 	 *
 	 * @dataProvider load_language_on_setup_data
 	 */
