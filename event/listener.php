@@ -30,7 +30,6 @@ class listener implements EventSubscriberInterface
 	 *
 	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
 	 * @param \phpbb\template\template                                 $template Template object
-	 * @access public
 	 */
 	public function __construct(operator_interface $operator, template $template)
 	{
@@ -43,7 +42,6 @@ class listener implements EventSubscriberInterface
 	 *
 	 * @return array
 	 * @static
-	 * @access public
 	 */
 	static public function getSubscribedEvents()
 	{
@@ -59,7 +57,6 @@ class listener implements EventSubscriberInterface
 	 * @param \phpbb\event\data $event The event object
 	 *
 	 * @return void
-	 * @access public
 	 */
 	public function show_collapsible_categories($event)
 	{

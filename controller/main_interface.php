@@ -28,7 +28,6 @@ interface main_interface
 	 *
 	 * @throws \phpbb\exception\http_exception An http exception
 	 * @return \Symfony\Component\HttpFoundation\JsonResponse A Symfony JSON Response object
-	 * @access public
 	 */
 	public function handle($forum_id);
 }

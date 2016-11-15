@@ -19,7 +19,6 @@ class m1_schema extends \phpbb\db\migration\migration
 	 * Check if this migration is effectively installed
 	 *
 	 * @return bool True if this migration is installed, False if this migration is not installed
-	 * @access public
 	 */
 	public function effectively_installed()
 	{
@@ -31,7 +30,6 @@ class m1_schema extends \phpbb\db\migration\migration
 	 *
 	 * @return array Array of migration files
 	 * @static
-	 * @access public
 	 */
 	static public function depends_on()
 	{
@@ -42,7 +40,6 @@ class m1_schema extends \phpbb\db\migration\migration
 	 * Add the collapsible_categories column to the users table
 	 *
 	 * @return array Array of table schema
-	 * @access public
 	 */
 	public function update_schema()
 	{
@@ -59,7 +56,6 @@ class m1_schema extends \phpbb\db\migration\migration
 	 * Drop the collapsible_categories column from the users table
 	 *
 	 * @return array Array of table schema
-	 * @access public
 	 */
 	public function revert_schema()
 	{

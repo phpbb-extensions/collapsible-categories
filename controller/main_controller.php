@@ -10,6 +10,9 @@
 
 namespace phpbb\collapsiblecategories\controller;
 
+use phpbb\collapsiblecategories\operator\operator;
+use phpbb\request\request;
+
 class main_controller implements main_interface
 {
 	/** @var \phpbb\collapsiblecategories\operator\operator */
@@ -23,9 +26,8 @@ class main_controller implements main_interface
 	 *
 	 * @param \phpbb\collapsiblecategories\operator\operator $operator Operator object
 	 * @param \phpbb\request\request                         $request  Request object
-	 * @access public
 	 */
-	public function __construct(\phpbb\collapsiblecategories\operator\operator $operator, \phpbb\request\request $request)
+	public function __construct(operator $operator, request $request)
 	{
 		$this->operator = $operator;
 		$this->request = $request;
@@ -57,7 +59,6 @@ class main_controller implements main_interface
 	 * @param string $value Value to test
 	 *
 	 * @return bool true if valid, false if invalid
-	 * @access protected
 	 */
 	protected function is_valid($value)
 	{

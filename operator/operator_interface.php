@@ -41,7 +41,6 @@ interface operator_interface
 	 *
 	 * @return array An array of collapsed forum identifiers
 	 *               or an empty array if nothing was found.
-	 * @access public
 	 */
 	public function get_user_categories();
 
@@ -51,7 +50,6 @@ interface operator_interface
 	 * @param string $forum_id A forum identifier
 	 *
 	 * @return bool True if user data was stored, false otherwise
-	 * @access public
 	 */
 	public function set_user_categories($forum_id);
 
@@ -60,7 +58,6 @@ interface operator_interface
 	 *
 	 * @return array An array of collapsed forum identifiers
 	 *               or an empty array if nothing was found.
-	 * @access public
 	 */
 	public function get_cookie_categories();
 
@@ -70,7 +67,6 @@ interface operator_interface
 	 * @param string $forum_id A forum identifier
 	 *
 	 * @return bool True
-	 * @access public
 	 */
 	public function set_cookie_categories($forum_id);
 }

@@ -47,8 +47,6 @@ class operator implements operator_interface
 	 * @param \phpbb\controller\helper          $helper  Controller helper object
 	 * @param \phpbb\request\request            $request Request object
 	 * @param \phpbb\user                       $user    User object
-	 *
-	 * @access public
 	 */
 	public function __construct(config $config, driver_interface $db, helper $helper, request $request, user $user)
 	{
@@ -162,11 +160,10 @@ class operator implements operator_interface
 	 * @param string $forum_id A forum identifier
 	 *
 	 * @return operator_interface $this object
-	 * @access protected
 	 */
 	protected function set_collapsed_categories($forum_id)
 	{
-		if (!isset($this->collapsed_categories))
+		if ($this->collapsed_categories === null)
 		{
 			$this->collapsed_categories = $this->toggle_array_value($forum_id, $this->get_user_categories());
 		}
@@ -182,7 +179,6 @@ class operator implements operator_interface
 	 * @param array $array An array
 	 *
 	 * @return array The updated array
-	 * @access protected
 	 */
 	protected function toggle_array_value($value, $array)
 	{
