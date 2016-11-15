@@ -12,17 +12,20 @@ namespace phpbb\collapsiblecategories\tests\event;
 
 class listener_test extends \phpbb_test_case
 {
-	/** @var \phpbb\collapsiblecategories\event\listener */
-	protected $listener;
-
 	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\controller\helper */
 	protected $controller_helper;
+
+	/** @var \phpbb\collapsiblecategories\event\listener */
+	protected $listener;
 
 	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator_interface */
 	protected $operator;
 
 	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\template\template */
 	protected $template;
+
+	/** @var \phpbb\user */
+	protected $user;
 
 	/**
 	 * Setup test environment
@@ -31,11 +34,6 @@ class listener_test extends \phpbb_test_case
 	{
 		parent::setUp();
 
-		// Stub of the operator class
-		$this->operator = $this->getMockBuilder('\phpbb\collapsiblecategories\operator\operator_interface')
-			->getMock();
-
-		// Stub of the controller helper class
 		$this->controller_helper = $this->getMockBuilder('\phpbb\controller\helper')
 			->disableOriginalConstructor()
 			->getMock();
@@ -44,6 +42,17 @@ class listener_test extends \phpbb_test_case
 			->willReturnCallback(function ($route, array $params = array()) {
 				return $route . '#' . serialize($params);
 			});
+
+		$this->user = $this->getMock('\phpbb\user', array(), array('\phpbb\datetime'));
+
+		// Stub of the operator class
+		$this->operator = new \phpbb\collapsiblecategories\operator\operator(
+			$this->getMock('\phpbb\config\config', array(), array(array())),
+			$this->getMock('\phpbb\db\driver\driver_interface'),
+			$this->controller_helper,
+			$this->getMock('\phpbb\request\request'),
+			$this->user
+		);
 
 		// Stub of the template class
 		$this->template = $this->getMockBuilder('\phpbb\template\template')
@@ -56,7 +65,6 @@ class listener_test extends \phpbb_test_case
 	protected function set_listener()
 	{
 		$this->listener = new \phpbb\collapsiblecategories\event\listener(
-			$this->controller_helper,
 			$this->operator,
 			$this->template
 		);
@@ -91,7 +99,7 @@ class listener_test extends \phpbb_test_case
 	{
 		return array(
 			array( // Forum 1 is not in the collapsed array
-				array(),
+				array('fid_2', 'fid_3'),
 				array(
 					'cat_row'	=> array(),
 					'row'		=> array('forum_id' => 1),
@@ -137,7 +145,7 @@ class listener_test extends \phpbb_test_case
 				),
 			),
 			array( // Un-categorized forum 1 is not in the collapsed array
-				array(),
+				array('fid_2', 'fid_3'),
 				array(
 					'forum_row'	=> array(),
 					'row'		=> array('forum_id' => 1),
@@ -178,10 +186,7 @@ class listener_test extends \phpbb_test_case
 		// Define event data object
 		$data = new \phpbb\event\data($data_map);
 
-		// Make the operator return $collapsed_forums test data
-		$this->operator->expects($this->any())
-			->method('get_user_categories')
-			->will($this->returnValue($collapsed_forums));
+		$this->user->data['collapsible_categories'] = json_encode($collapsed_forums);
 
 		// Call the method
 		$this->listener->show_collapsible_categories($data);

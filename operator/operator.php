@@ -10,6 +10,12 @@
 
 namespace phpbb\collapsiblecategories\operator;
 
+use phpbb\config\config;
+use phpbb\controller\helper;
+use phpbb\db\driver\driver_interface;
+use phpbb\request\request;
+use phpbb\user;
+
 /**
  * Class operator
  */
@@ -24,6 +30,9 @@ class operator implements operator_interface
 	/** @var \phpbb\db\driver\driver_interface */
 	protected $db;
 
+	/** @var \phpbb\controller\helper */
+	protected $helper;
+
 	/** @var \phpbb\request\request */
 	protected $request;
 
@@ -35,19 +44,45 @@ class operator implements operator_interface
 	 *
 	 * @param \phpbb\config\config              $config  Config object
 	 * @param \phpbb\db\driver\driver_interface $db      Database object
+	 * @param \phpbb\controller\helper          $helper  Controller helper object
 	 * @param \phpbb\request\request            $request Request object
 	 * @param \phpbb\user                       $user    User object
 	 *
 	 * @access public
 	 */
-	public function __construct(\phpbb\config\config $config, \phpbb\db\driver\driver_interface $db, \phpbb\request\request $request, \phpbb\user $user)
+	public function __construct(config $config, driver_interface $db, helper $helper, request $request, user $user)
 	{
 		$this->config = $config;
 		$this->db = $db;
+		$this->helper = $helper;
 		$this->request = $request;
 		$this->user = $user;
 
 		$this->user->add_lang_ext('phpbb/collapsiblecategories', 'collapsiblecategories');
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function is_collapsed($forum_id)
+	{
+		if ($this->collapsed_categories === null)
+		{
+			$this->collapsed_categories = $this->get_user_categories();
+		}
+
+		return in_array($forum_id, $this->collapsed_categories);
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function get_collapsible_link($forum_id)
+	{
+		return $this->helper->route('phpbb_collapsiblecategories_main_controller', array(
+			'forum_id'	=> $forum_id,
+			'hash'		=> generate_link_hash("collapsible_$forum_id")
+		));
 	}
 
 	/**

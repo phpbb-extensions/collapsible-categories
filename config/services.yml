@@ -2,7 +2,6 @@ services:
     phpbb.collapsiblecategories.listener:
         class: phpbb\collapsiblecategories\event\listener
         arguments:
-            - '@controller.helper'
             - '@phpbb.collapsiblecategories.operator'
             - '@template'
         tags:
@@ -19,5 +18,6 @@ services:
         arguments:
             - '@config'
             - '@dbal.conn'
+            - '@controller.helper'
             - '@request'
             - '@user'

@@ -19,6 +19,24 @@ namespace phpbb\collapsiblecategories\operator;
 interface operator_interface
 {
 	/**
+	 * Check if a forum is collapsed
+	 *
+	 * @param string $forum_id A forum identifier
+	 *
+	 * @return bool True if forum is collapsed, false otherwise
+	 */
+	public function is_collapsed($forum_id);
+
+	/**
+	 * Generate a link to collapse or expand a forum
+	 *
+	 * @param string $forum_id A forum identifier
+	 *
+	 * @return string A URL route to the collapsible controller
+	 */
+	public function get_collapsible_link($forum_id);
+
+	/**
 	 * Get the user's collapsed category data from the user object
 	 *
 	 * @return array An array of collapsed forum identifiers

@@ -10,6 +10,8 @@
 
 namespace phpbb\collapsiblecategories\event;
 
+use phpbb\collapsiblecategories\operator\operator_interface;
+use phpbb\template\template;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -17,12 +19,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class listener implements EventSubscriberInterface
 {
-	/** @var array Array of collapsed forum category identifiers */
-	protected $categories;
-
-	/** @var \phpbb\controller\helper */
-	protected $helper;
-
 	/** @var \phpbb\collapsiblecategories\operator\operator_interface */
 	protected $operator;
 
@@ -32,14 +28,12 @@ class listener implements EventSubscriberInterface
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\controller\helper                                 $helper   Controller helper object
 	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
 	 * @param \phpbb\template\template                                 $template Template object
 	 * @access public
 	 */
-	public function __construct(\phpbb\controller\helper $helper, \phpbb\collapsiblecategories\operator\operator_interface $operator, \phpbb\template\template $template)
+	public function __construct(operator_interface $operator, template $template)
 	{
-		$this->helper = $helper;
 		$this->operator = $operator;
 		$this->template = $template;
 	}
@@ -69,17 +63,12 @@ class listener implements EventSubscriberInterface
 	 */
 	public function show_collapsible_categories($event)
 	{
-		if (!isset($this->categories))
-		{
-			$this->categories = $this->operator->get_user_categories();
-		}
-
 		$fid = 'fid_' . $event['row']['forum_id'];
 		$row = isset($event['cat_row']) ? 'cat_row' : 'forum_row';
 		$event_row = $event[$row];
 		$event_row = array_merge($event_row, array(
-			'S_FORUM_HIDDEN' => in_array($fid, $this->categories),
-			'U_COLLAPSE_URL' => $this->helper->route('phpbb_collapsiblecategories_main_controller', array('forum_id' => $fid, 'hash' => generate_link_hash("collapsible_$fid")))
+			'S_FORUM_HIDDEN'	=> $this->operator->is_collapsed($fid),
+			'U_COLLAPSE_URL'	=> $this->operator->get_collapsible_link($fid),
 		));
 		$event[$row] = $event_row;
 	}

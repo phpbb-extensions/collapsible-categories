@@ -18,6 +18,9 @@ class operator_base extends \phpbb_database_test_case
 	/** @var \phpbb\config\config */
 	protected $config;
 
+	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\controller\helper */
+	protected $controller_helper;
+
 	/** @var \phpbb\request\request */
 	protected $request;
 
@@ -44,6 +47,9 @@ class operator_base extends \phpbb_database_test_case
 		$this->db = $this->new_dbal();
 		$this->config = new \phpbb\config\config(array('cookie_name' => 'test'));
 		$this->user = $this->getMock('\phpbb\user', array(), array('\phpbb\datetime'));
+		$this->controller_helper = $this->getMockBuilder('\phpbb\controller\helper')
+			->disableOriginalConstructor()
+			->getMock();
 	}
 
 	/**
@@ -80,7 +86,7 @@ class operator_base extends \phpbb_database_test_case
 		$this->request = new \phpbb\request\request($this->getMock('\phpbb\request\type_cast_helper_interface'));
 		$this->request->enable_super_globals();
 
-		$this->operator = new \phpbb\collapsiblecategories\operator\operator($this->config, $this->db, $this->request, $this->user);
+		$this->operator = new \phpbb\collapsiblecategories\operator\operator($this->config, $this->db, $this->controller_helper, $this->request, $this->user);
 
 		$this->assertInstanceOf('\phpbb\collapsiblecategories\operator\operator', $this->operator);
 	}
