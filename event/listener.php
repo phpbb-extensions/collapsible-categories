@@ -54,27 +54,9 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'									=> 'load_language_on_setup',
 			'core.display_forums_modify_category_template_vars'	=> 'show_collapsible_categories',
 			'core.display_forums_modify_template_vars'			=> 'show_collapsible_categories',
 		);
-	}
-
-	/**
-	 * Load common language files during user setup
-	 *
-	 * @param \phpbb\event\data $event The event object
-	 * @return void
-	 * @access public
-	 */
-	public function load_language_on_setup($event)
-	{
-		$lang_set_ext = $event['lang_set_ext'];
-		$lang_set_ext[] = array(
-			'ext_name' => 'phpbb/collapsiblecategories',
-			'lang_set' => 'collapsiblecategories',
-		);
-		$event['lang_set_ext'] = $lang_set_ext;
 	}
 
 	/**

@@ -46,6 +46,8 @@ class operator implements operator_interface
 		$this->db = $db;
 		$this->request = $request;
 		$this->user = $user;
+
+		$this->user->add_lang_ext('phpbb/collapsiblecategories', 'collapsiblecategories');
 	}
 
 	/**
