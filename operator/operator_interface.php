@@ -19,11 +19,28 @@ namespace phpbb\collapsiblecategories\operator;
 interface operator_interface
 {
 	/**
+	 * Check if a forum is collapsed
+	 *
+	 * @param string $forum_id A forum identifier
+	 *
+	 * @return bool True if forum is collapsed, false otherwise
+	 */
+	public function is_collapsed($forum_id);
+
+	/**
+	 * Generate a link to collapse or expand a forum
+	 *
+	 * @param string $forum_id A forum identifier
+	 *
+	 * @return string A URL route to the collapsible controller
+	 */
+	public function get_collapsible_link($forum_id);
+
+	/**
 	 * Get the user's collapsed category data from the user object
 	 *
 	 * @return array An array of collapsed forum identifiers
 	 *               or an empty array if nothing was found.
-	 * @access public
 	 */
 	public function get_user_categories();
 
@@ -33,7 +50,6 @@ interface operator_interface
 	 * @param string $forum_id A forum identifier
 	 *
 	 * @return bool True if user data was stored, false otherwise
-	 * @access public
 	 */
 	public function set_user_categories($forum_id);
 
@@ -42,7 +58,6 @@ interface operator_interface
 	 *
 	 * @return array An array of collapsed forum identifiers
 	 *               or an empty array if nothing was found.
-	 * @access public
 	 */
 	public function get_cookie_categories();
 
@@ -52,7 +67,6 @@ interface operator_interface
 	 * @param string $forum_id A forum identifier
 	 *
 	 * @return bool True
-	 * @access public
 	 */
 	public function set_cookie_categories($forum_id);
 }

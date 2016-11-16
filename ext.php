@@ -29,7 +29,6 @@ class ext extends \phpbb\extension\base
 	 * the minimum version required by this extension:
 	 *
 	 * @return bool
-	 * @access public
 	 */
 	public function is_enableable()
 	{
