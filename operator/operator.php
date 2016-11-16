@@ -64,7 +64,7 @@ class operator implements operator_interface
 	 */
 	public function is_collapsed($forum_id)
 	{
-		if ($this->collapsed_categories === null)
+		if (!isset($this->collapsed_categories))
 		{
 			$this->collapsed_categories = $this->get_user_categories();
 		}
@@ -163,7 +163,7 @@ class operator implements operator_interface
 	 */
 	protected function set_collapsed_categories($forum_id)
 	{
-		if ($this->collapsed_categories === null)
+		if (!isset($this->collapsed_categories))
 		{
 			$this->collapsed_categories = $this->toggle_array_value($forum_id, $this->get_user_categories());
 		}
