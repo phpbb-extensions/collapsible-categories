@@ -31,7 +31,7 @@ class simple_db_test extends \phpbb_database_test_case
 		$this->db = $this->new_dbal();
 
 		// Instantiate the db_tools class
-		$db_tools = new \phpbb\db\tools($this->db);
+		$db_tools = new \phpbb\db\tools\tools($this->db);
 
 		// Test the migration installs the collapsible_categories column
 		$this->assertTrue($db_tools->sql_column_exists(USERS_TABLE, 'collapsible_categories'), 'Asserting that column "collapsible_categories" exists');
