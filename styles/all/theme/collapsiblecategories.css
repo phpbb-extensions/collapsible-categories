@@ -6,48 +6,58 @@
 }
 
 /* Collapse button */
-a.collapse-btn {
-	margin: -20px 0 0 0;
+.collapse-btn {
 	background-color: #eef5f9; /* Button bg color */
-	border: 1px solid #2092E3; /* Button border color */
-	display: block;
+	border: 1px solid #2092e3; /* Button border color */
 	position: relative;
-	box-sizing: border-box;
+	display: block;
 	float: right;
+	box-sizing: border-box;
+	margin: -20px 0 0 0;
 }
-a.collapse-btn:after,
-a.collapse-btn:before {
+
+.collapse-btn:after,
+.collapse-btn:before {
 	background: #eef5f9; /* Button bg color */
-	border: 1px solid #2092E3; /* Symbol bg color */
-	content: '';
+	border: 1px solid #2092e3; /* Symbol bg color */
 	position: absolute;
+	content: '';
 }
-a.collapse-btn:hover,
-a.collapse-btn:hover:after,
-a.collapse-btn:hover:before {
-	background-color: #fff; /* Button hover color */
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #ffffff; /* Button hover color */
 	cursor: pointer;
 }
-.rtl a.collapse-btn { float: left; }
+
+.rtl .collapse-btn {
+	float: left;
+}
 
 /* Collapse show hide symbols */
-a.collapse-hide,
-a.collapse-show {
+.collapse-hide,
+.collapse-show {
 	border-radius: 4px;
-	height: 16px;
 	width: 16px;
+	height: 16px;
 }
-a.collapse-hide:after,
-a.collapse-show:before {
-	height: 0;
-	left: 3px;
+
+.collapse-hide:after,
+.collapse-show:before {
 	top: 6px;
+	left: 3px;
 	width: 6px;
+	height: 0;
 }
-a.collapse-show:after {
-	height: 6px;
-	left: 6px;
+
+.collapse-show:after {
 	top: 3px;
+	left: 6px;
 	width: 0;
+	height: 6px;
 }
-a.collapse-hide:before { border: none; }
+
+.collapse-hide:before {
+	border: none;
+}
