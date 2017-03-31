@@ -1,0 +1,22 @@
+/* Import base collapsible categories stylesheet */
+@import url('../../all/theme/collapsiblecategories.css');
+
+/* Styling overrides for Green-Style theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: #f6fbda; /* Button bg color */
+	border-color: #fefefe; /* Button border color */
+	margin: -25px 0 0 0;
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	border-color: #456210; /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #fefefe; /* Button hover color */
+}

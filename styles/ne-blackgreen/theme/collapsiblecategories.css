@@ -1,0 +1,18 @@
+/* Import base collapsible categories stylesheet */
+@import url('../../all/theme/collapsiblecategories.css');
+
+/* Styling overrides for ne-blackgreen theme */
+
+/* Collapse button */
+.collapse-btn,
+.collapse-btn:after,
+.collapse-btn:before {
+	background-color: #000000; /* Button bg color */
+	border-color: #009900; /* Button border color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #000000; /* Button hover color */
+}
