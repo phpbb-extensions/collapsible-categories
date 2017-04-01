@@ -1,0 +1,22 @@
+/* Import base collapsible categories stylesheet */
+@import url('../../all/theme/collapsiblecategories.css');
+
+/* Styling overrides for Black-Silver theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: #fafafa; /* Button bg color */
+	border-color: #fefefe; /* Button border color */
+	margin: -25px 0 0 0;
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	border-color: #3f3f3f; /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #fefefe; /* Button hover color */
+}

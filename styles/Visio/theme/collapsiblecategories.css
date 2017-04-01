@@ -1,0 +1,44 @@
+/* Import base collapsible categories stylesheet */
+@import url('../../all/theme/collapsiblecategories.css');
+
+/* Styling overrides for Visio theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: #f9c7ce; /* Button bg color */
+	border: 1px solid #f9c7ce; /* Button border color */
+	margin: -50px 0 0 0;
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	background: #f9c7ce; /* Button bg color */
+	border: 1px solid #a80055; /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #dad7cc; /* Button hover color */
+}
+
+/* Collapse show hide symbols */
+.collapse-hide,
+.collapse-show {
+	/*border-radius: 4px;*/
+	width: 32px;
+	height: 32px;
+}
+
+.collapse-hide:after,
+.collapse-show:before {
+	top: 15px;
+	left: 5px;
+	width: 18px;
+}
+
+.collapse-show:after {
+	top: 5px;
+	left: 14px;
+	height: 18px;
+}
