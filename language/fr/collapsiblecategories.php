@@ -39,5 +39,5 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Afficher / masquer l’affichage de cette catégorie du forum',
+	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Afficher / masquer le contenu de cette catégorie',
 ));
