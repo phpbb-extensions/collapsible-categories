@@ -7,57 +7,75 @@
 
 /* Collapse button */
 .collapse-btn {
-	
 	position: relative;
+	width: 16px; 
+	height: 8.24px;
+	background-color: #de7300;
+	margin: -18px 0 0 0;
 	display: block;
 	float: right;
 	box-sizing: border-box;
-	margin: -22px 0 0 0;
-	background-image: url(./images/collapse.png);
+	
 }
 
-.collapse-btn:after,
-.collapse-btn:before {
-	background: #eef5f9; /* Button bg color */
-	border: 1px solid #de7300; /* Symbol bg color */
+.collapse-btn:before,
+.collapse-btn:after {
+	content: "";
 	position: absolute;
-	content: '';
+	width: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+  
 }
 
-.collapse-btn:hover,
-.collapse-btn:hover:after,
-.collapse-btn:hover:before {
-	background-color: rgba(255, 255, 255, 0); /* Button hover color */
-	cursor: pointer;
+.collapse-btn:before {
+	bottom: 100% !important;
+    width: 0px !important;
+    border-bottom: 4.62px solid #de7300;
+    left: 0px !important;
 }
 
-.rtl .collapse-btn {
-	float: left;
+.collapse-btn:after {
+	top: 100% !important;
+    width: 0px !important;
+    border-top: 4.62px solid #de7300; 
+    left: 0px !important;
 }
+a.collapse-btn.collapse-hide {
+    background-color: #e9ebee;
+}
+a.collapse-btn.collapse-hide:before {
+    border-bottom-color: #e9ebee;
+}
+a.collapse-btn.collapse-hide:after {
+    border-top-color: #e9ebee;
+}
+
+
 
 /* Collapse show hide symbols */
-.collapse-hide,
-.collapse-show {
-	border-radius: 4px;
-	width: 16px;
-	height: 16px;
-}
-
-.collapse-hide:after,
-.collapse-show:before {
-	top: 7px;
-    left: 4px;
+.collapse-hide:before,
+.collapse-show :after{
+	top: -4px;
+    left: 0px;
     width: 6px;
     height: 0;
 }
 
-.collapse-show:after {
-	top: 4px;
-    left: 7px;
-    width: 0px;
-    height: 6px;
+.collapse-hide:after,
+.collapse-show:before {
+	top: -4px;
+	left: 3px;
+	width: 6px;
+	height: 0;
 }
 
-.collapse-hide:before {
-	border: none;
+.collapse-show:after {
+	top: 3px;
+	left: 6px;
+	width: 0;
+	height: 6px;
 }
+.collapse-hide:before {
+	border-bottom: 4.62px solid #de7300;
+}					   
