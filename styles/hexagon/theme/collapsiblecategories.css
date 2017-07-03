@@ -1,0 +1,81 @@
+/* Hide the forums of a hidden category */
+.hidden-category,
+.hidden-category + .forabg .collapsible,
+.hidden-category + .forabg .topiclist.forums {
+	display: none;
+}
+
+/* Collapse button */
+.collapse-btn {
+	position: relative;
+	width: 16px; 
+	height: 8.24px;
+	background-color: #de7300;
+	margin: -18px 0 0 0;
+	display: block;
+	float: right;
+	box-sizing: border-box;
+	
+}
+
+.collapse-btn:before,
+.collapse-btn:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+  
+}
+
+.collapse-btn:before {
+	bottom: 100% !important;
+    width: 0px !important;
+    border-bottom: 4.62px solid #de7300;
+    left: 0px !important;
+}
+
+.collapse-btn:after {
+	top: 100% !important;
+    width: 0px !important;
+    border-top: 4.62px solid #de7300; 
+    left: 0px !important;
+}
+a.collapse-btn.collapse-hide {
+    background-color: #e9ebee;
+}
+a.collapse-btn.collapse-hide:before {
+    border-bottom-color: #e9ebee;
+}
+a.collapse-btn.collapse-hide:after {
+    border-top-color: #e9ebee;
+}
+
+
+
+/* Collapse show hide symbols */
+.collapse-hide:before,
+.collapse-show :after{
+	top: -4px;
+    left: 0px;
+    width: 6px;
+    height: 0;
+}
+
+.collapse-hide:after,
+.collapse-show:before {
+	top: -4px;
+	left: 3px;
+	width: 6px;
+	height: 0;
+}
+
+.collapse-show:after {
+	top: 3px;
+	left: 6px;
+	width: 0;
+	height: 6px;
+}
+.collapse-hide:before {
+	border-bottom: 4.62px solid #de7300;
+}					   
