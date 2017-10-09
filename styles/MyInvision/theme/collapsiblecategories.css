@@ -7,20 +7,20 @@
 /* Collapse button */
 .collapse-btn {
 	background-color: transparent;
-    position: relative;
-    display: block;
-    float: right;
-    box-sizing: border-box;
-    margin: -20px 0px 0 0;
+	position: relative;
+	display: block;
+	float: right;
+	box-sizing: border-box;
+	margin: -20px 0px 0 0;
 	border: none;
 }
 
 .collapse-btn:after,
 .collapse-btn:before {
 	background: #f8f8f8;
-    border: none;
+	border: none;
 	font-family: FontAwesome;
-    font-size: 25px;
+	font-size: 25px;
 }
 
 .collapse-btn:hover,
@@ -30,27 +30,20 @@
 	color: #007ed6;
 }
 
-
-
 /* Collapse show hide symbols */
-
-
 .collapse-hide:after,
 .collapse-show:before {
-    top: 9px;
-    left: 2px;
-    width: 6px;
-    height: 0;
-    content: '\f0d7';
+	top: 9px;
+	left: 2px;
+	content: '\f0d7';
 }
-
-
 
 .collapse-hide:before {
 	content: '\f0d8';
-    top: 7px;
-    left: 2px;
+	top: 7px;
+	left: 2px;
 }
 
 .collapse-hide:after {
-    content: '';
+	content: '';
+}
