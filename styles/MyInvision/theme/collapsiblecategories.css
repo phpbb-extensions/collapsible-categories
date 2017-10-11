@@ -7,11 +7,6 @@
 /* Collapse button */
 .collapse-btn {
 	background-color: transparent;
-	position: relative;
-	display: block;
-	float: right;
-	box-sizing: border-box;
-	margin: -20px 0px 0 0;
 	border: none;
 }
 
