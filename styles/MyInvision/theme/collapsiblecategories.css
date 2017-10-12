@@ -8,6 +8,7 @@
 .collapse-btn {
 	background-color: transparent;
 	border: none;
+	margin: -29px 10px 0 0;
 }
 
 .collapse-btn:after,
