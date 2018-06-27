@@ -21,6 +21,10 @@
     - SoftBlue
     - X-Creamy
 - Added language packs for:
+	- Brazilian Portuguese
+	- Danish
+	- German (Casual and Formal)
+	- Polish
 	- Slovak
 
 ## 1.0.2 - 2017-05-07
