@@ -1,0 +1,21 @@
+/* Import base collapsible categories stylesheet */
+@import url('../../all/theme/collapsiblecategories.css');
+
+/* Styling overrides for pro_ubuntu_lucid theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: #cabda6; /* Button bg color */
+	border-color: #772953; /* Button border color */
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	border-color: #772953; /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #e9e9e9; /* Button hover color */
+}
