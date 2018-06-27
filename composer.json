@@ -3,8 +3,8 @@
 	"type": "phpbb-extension",
 	"description": "An extension for phpBB that allows visitors to collapse and minimise forum categories with a simple click.",
 	"homepage": "https://www.phpbb.com",
-	"version": "1.0.2",
-	"license": "GPL-2.0",
+	"version": "1.0.3",
+	"license": "GPL-2.0-only",
 	"authors": [
 		{
 			"name": "Marc Alexander",
@@ -20,7 +20,7 @@
 		},
 		{
 			"name": "Matt Friedman",
-			"homepage": "http://mattfriedman.me",
+			"homepage": "http://vsephpbb.github.io",
 			"role": "Extensions Development Team Lead"
 		},
 		{
