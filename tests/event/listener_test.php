@@ -90,6 +90,7 @@ class listener_test extends \phpbb_test_case
 	public function test_getSubscribedEvents()
 	{
 		$this->assertEquals(array(
+			'core.user_setup',
 			'core.display_forums_modify_category_template_vars',
 			'core.display_forums_modify_template_vars',
 		), array_keys(\phpbb\collapsiblecategories\event\listener::getSubscribedEvents()));
@@ -201,5 +202,27 @@ class listener_test extends \phpbb_test_case
 
 		// Assert the event data object is updated as expected
 		$this->assertSame($expected, $data[$forum_row]);
+	}
+
+	/**
+	 * Test the load_language_on_setup_test event
+	 */
+	public function test_load_language_on_setup()
+	{
+		$this->set_listener();
+
+		// Define event data object
+		$data = new \phpbb\event\data(array('lang_set_ext'));
+
+		// Call the method
+		$this->listener->load_language_on_setup($data);
+
+		// Assert the event data object is updated as expected
+		$this->assertEquals(array(
+			array(
+				'ext_name' => 'phpbb/collapsiblecategories',
+				'lang_set' => 'collapsiblecategories',
+			),
+		), $data['lang_set_ext']);
 	}
 }

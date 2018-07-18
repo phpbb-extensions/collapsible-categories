@@ -55,8 +55,6 @@ class operator implements operator_interface
 		$this->helper = $helper;
 		$this->request = $request;
 		$this->user = $user;
-
-		$this->user->add_lang_ext('phpbb/collapsiblecategories', 'collapsiblecategories');
 	}
 
 	/**
