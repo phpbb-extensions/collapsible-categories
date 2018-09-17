@@ -48,10 +48,12 @@ class operator_base extends \phpbb_database_test_case
 
 		$this->db = $this->new_dbal();
 		$this->config = new \phpbb\config\config(array('cookie_name' => 'test'));
-		$this->user = $this->getMock('\phpbb\user', array(), array(
-			new \phpbb\language\language(new \phpbb\language\language_file_loader($phpbb_root_path, $phpEx)),
-			'\phpbb\datetime'
-		));
+		$this->user = $this->getMockBuilder('\phpbb\user')
+			->setConstructorArgs(array(
+				new \phpbb\language\language(new \phpbb\language\language_file_loader($phpbb_root_path, $phpEx)),
+				'\phpbb\datetime'
+			))
+			->getMock();
 		$this->controller_helper = $this->getMockBuilder('\phpbb\controller\helper')
 			->disableOriginalConstructor()
 			->getMock();
@@ -88,7 +90,7 @@ class operator_base extends \phpbb_database_test_case
 	{
 		// We need to set up the request class and enable super globals at this point
 		// because it needs to happen after we have defined a test $_COOKIE value.
-		$this->request = new \phpbb\request\request($this->getMock('\phpbb\request\type_cast_helper_interface'));
+		$this->request = new \phpbb\request\request($this->getMockBuilder('\phpbb\request\type_cast_helper_interface')->getMock());
 		$this->request->enable_super_globals();
 
 		$this->operator = new \phpbb\collapsiblecategories\operator\operator($this->config, $this->db, $this->controller_helper, $this->request, $this->user);

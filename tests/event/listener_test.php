@@ -45,17 +45,24 @@ class listener_test extends \phpbb_test_case
 				return $route . '#' . serialize($params);
 			});
 
-		$this->user = $this->getMock('\phpbb\user', array(), array(
-			new \phpbb\language\language(new \phpbb\language\language_file_loader($phpbb_root_path, $phpEx)),
-			'\phpbb\datetime'
-		));
+		$this->user = $this->getMockBuilder('\phpbb\user')
+			->setConstructorArgs(array(
+				new \phpbb\language\language(new \phpbb\language\language_file_loader($phpbb_root_path, $phpEx)),
+				'\phpbb\datetime'
+			))
+			->getMock();
 
 		// Stub of the operator class
 		$this->operator = new \phpbb\collapsiblecategories\operator\operator(
-			$this->getMock('\phpbb\config\config', array(), array(array())),
-			$this->getMock('\phpbb\db\driver\driver_interface'),
+			$this->getMockBuilder('\phpbb\config\config')
+				->setConstructorArgs(array(array()))
+				->getMock(),
+			$this->getMockBuilder('\phpbb\db\driver\driver_interface')
+				->getMock(),
 			$this->controller_helper,
-			$this->getMock('\phpbb\request\request'),
+			$this->getMockBuilder('\phpbb\request\request')
+				->disableOriginalConstructor()
+				->getMock(),
 			$this->user
 		);
 
