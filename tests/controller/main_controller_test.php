@@ -26,7 +26,9 @@ class main_controller_test extends \phpbb_test_case
 			->will($this->returnValue($result));
 
 		/** @var $request \PHPUnit_Framework_MockObject_MockObject|\phpbb\request\request */
-		$request = $this->getMock('\phpbb\request\request');
+		$request = $this->getMockBuilder('\phpbb\request\request')
+			->disableOriginalConstructor()
+			->getMock();
 
 		// Override is_ajax() to return value of $is_ajax
 		$request->expects($this->any())
