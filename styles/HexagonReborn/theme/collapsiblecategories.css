@@ -1,28 +1,90 @@
 /* Import base collapsible categories stylesheet */
 @import url('../../all/theme/collapsiblecategories.css');
 
-/* Styling overrides for HexagonReborn theme */
+/* Styling overrides for Hexagon theme */
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #262626; /* Button bg color */
-	border-color: #de7300; /* Button border color */
-	margin: -32px 10px;
+    margin: -30px 12px 0 0;
+    padding: 1px 3px;
+	border: none;
 }
 
 .collapse-btn:after,
 .collapse-btn:before {
-	border-color: #e9ebee; /* Symbol bg color */
+    width: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+	background: transparent;
+    border-bottom: none;
+    border-top: none;					 			 
 }
 
 .collapse-btn:hover,
 .collapse-btn:hover:after,
 .collapse-btn:hover:before {
-	background-color: #de7300; /* Button hover color */
+	background-color: #de7300;
 }
+
 
 /* Collapse show hide symbols */
 .collapse-hide,
 .collapse-show {
-	border-radius: 0;
+    width: 15px;
+    height: 8px;
+	border-radius: 0px;
+}
+.collapse-show {
+    background-color: #de7300;
+}
+.collapse-hide {
+	background-color: #e9ebee;
+}
+.collapse-btn:hover .collapse-show {
+    cursor: pointer;
+    background-color: #de7300;
+}
+.collapse-btn:hover:before {
+    background-color: transparent;
+}
+.collapse-btn:hover:after {
+    background-color: transparent;
+}
+.collapse-hide:hover {
+    background-color: #e9ebee;
+}
+
+.collapse-hide:after{
+	top: 100%;
+    width: 0;
+    border-top: 5.22px solid #e9ebee;
+    left: 0px;
+	background-color: transparent !important;
+}
+
+.collapse-show:before {
+    bottom: 100%;
+    border-bottom: 5.22px solid #de7300;
+    left: 0px;
+	top: -5px;
+}
+
+.collapse-show:after {
+    top: 100%;
+    border-top: 5.22px solid #de7300;
+    left: 0px;
+}
+
+.collapse-hide:before {
+    bottom: 100%;
+    border-bottom: 5.22px solid #e9ebee;
+    left: 0px;
+	background-color: transparent !important;
+}
+.collapse-btn:hover,
+.collapse-btn:focus {
+    box-shadow: 0 0 20px 3px #de7300;
+}
+.collapse-btn.collapse-hide:hover {
+    background-color: #e9ebee;
 }
