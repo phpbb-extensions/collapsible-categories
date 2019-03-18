@@ -1,0 +1,21 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Graphit theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: #3e3e3e; /* Button bg color */
+	border-color: #7e797a; /* Button border color */
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	border-color: #adadad; /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #333333; /* Button hover color */
+}

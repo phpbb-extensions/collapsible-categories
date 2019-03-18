@@ -1,0 +1,22 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for nosebleed theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: #ffffff; /* Button bg color */
+	border-color: #111111; /* Button border color */
+	margin: -19px 0 0 0;
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	border-color: #111111; /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: #ebebeb; /* Button hover color */
+}

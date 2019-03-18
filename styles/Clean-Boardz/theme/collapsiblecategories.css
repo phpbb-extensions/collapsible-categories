@@ -1,0 +1,9 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Clean-Boardz theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin: -25px 13px 0 0;
+}
