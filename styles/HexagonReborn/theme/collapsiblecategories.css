@@ -1,28 +1,97 @@
 /* Import base collapsible categories stylesheet */
-@import url('../../all/theme/collapsiblecategories.css');
+@import url("../../all/theme/collapsiblecategories.css");
 
 /* Styling overrides for HexagonReborn theme */
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #262626; /* Button bg color */
-	border-color: #de7300; /* Button border color */
-	margin: -32px 10px;
+	border: none;
+	margin: -30px 12px 0 0;
+	padding: 1px 3px;
 }
 
 .collapse-btn:after,
 .collapse-btn:before {
-	border-color: #e9ebee; /* Symbol bg color */
+	background: transparent;
+	border-top: none;
+	border-right: 7.5px solid transparent;
+	border-bottom: none;
+	border-left: 7.5px solid transparent;
+	width: 0;
 }
 
 .collapse-btn:hover,
 .collapse-btn:hover:after,
 .collapse-btn:hover:before {
-	background-color: #de7300; /* Button hover color */
+	background-color: #de7300;
 }
 
 /* Collapse show hide symbols */
 .collapse-hide,
 .collapse-show {
 	border-radius: 0;
+	width: 15px;
+	height: 8px;
+}
+
+.collapse-show {
+	background-color: #de7300;
+}
+
+.collapse-hide {
+	background-color: #e9ebee;
+}
+
+.collapse-btn:hover .collapse-show {
+	background-color: #de7300;
+	cursor: pointer;
+}
+
+.collapse-btn:hover:before {
+	background-color: transparent;
+}
+
+.collapse-btn:hover:after {
+	background-color: transparent;
+}
+
+.collapse-hide:hover {
+	background-color: #e9ebee;
+}
+
+.collapse-hide:after {
+	background-color: transparent !important;
+	border-top: 5.22px solid #e9ebee;
+	top: 100%;
+	left: 0;
+	width: 0;
+}
+
+.collapse-show:before {
+	border-bottom: 5.22px solid #de7300;
+	top: -5px;
+	bottom: 100%;
+	left: 0;
+}
+
+.collapse-show:after {
+	border-top: 5.22px solid #de7300;
+	top: 100%;
+	left: 0;
+}
+
+.collapse-hide:before {
+	background-color: transparent !important;
+	border-bottom: 5.22px solid #e9ebee;
+	bottom: 100%;
+	left: 0;
+}
+
+.collapse-btn:hover,
+.collapse-btn:focus {
+	box-shadow: 0 0 20px 3px #de7300;
+}
+
+.collapse-btn.collapse-hide:hover {
+	background-color: #e9ebee;
 }
