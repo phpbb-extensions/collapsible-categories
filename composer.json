@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "An extension for phpBB that allows visitors to collapse and minimise forum categories with a simple click.",
 	"homepage": "https://www.phpbb.com",
-	"version": "1.0.3",
+	"version": "1.0.4-dev",
 	"license": "GPL-2.0-only",
 	"authors": [
 		{

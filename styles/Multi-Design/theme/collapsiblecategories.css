@@ -1,0 +1,22 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Multi-Design theme */
+
+/* Collapse button */
+.collapse-btn {
+	background-color: hsla(0, 0%, 0%, 0.5); /* Button bg color */
+	border-color: hsla(360, 100%, 100%, 0.5); /* Button border color */
+	margin: -30px 10px 0 0;
+}
+
+.collapse-btn:after,
+.collapse-btn:before {
+	border-color: hsla(0, 0%, 0%, 0.5); /* Symbol bg color */
+}
+
+.collapse-btn:hover,
+.collapse-btn:hover:after,
+.collapse-btn:hover:before {
+	background-color: hsla(0, 0%, 50%, 0.5); /* Button hover color */
+}
