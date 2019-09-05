@@ -1,6 +1,6 @@
 # Collapsible Categories
 
-This is the repository for the development of the Collapsible Categories Extension for phpBB 3.1
+This is the repository for the development of the Collapsible Categories Extension for phpBB 3.2
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/02f8e3ba-3420-4ad2-835b-ed1d6e493234/big.png)](https://insight.sensiolabs.com/projects/02f8e3ba-3420-4ad2-835b-ed1d6e493234)
 
@@ -9,7 +9,7 @@ This is the repository for the development of the Collapsible Categories Extensi
 [![Code Coverage](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/?branch=master)
 
 ## Quick Install
-You can install this on the latest release of phpBB 3.1 by following the steps below:
+You can install this on the latest release of phpBB 3.2 by following the steps below:
 
 1. [Download the latest release](https://www.phpbb.com/customise/db/extension/collapsible_forum_categories/).
 2. Unzip the downloaded release and copy it to the `ext` directory of your phpBB board.
