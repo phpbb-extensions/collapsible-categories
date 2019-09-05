@@ -29,7 +29,9 @@
 	phpbb.addAjaxCallback('phpbb_collapse', function(res) {
 		if (res.success) {
 			$(this)
-				.toggleClass('collapse-show collapse-hide')
+				.find('i')
+				.toggleClass('fa-plus-square fa-minus-square')
+				.end()
 				.getCollapsible()
 				.stop(true, true)
 				.slideToggle('fast')
