@@ -1,0 +1,9 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for maxthon theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin: -20px 5px 0 0;
+}

@@ -1,0 +1,13 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for 1996 theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin: -22px 5px 0 0;
+}
+
+.rtl .collapse-btn {
+	margin-left: 5px;
+}
