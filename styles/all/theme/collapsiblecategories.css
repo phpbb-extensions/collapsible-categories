@@ -7,13 +7,13 @@
 
 /* Collapse button */
 .collapse-btn {
-	font-size: 1rem !important;
+	font-size: 1rem !important; /* Adjust to change the button size */
 	position: relative;
 	float: right;
-	margin: -20px 0 0 0; /* Adjust this to tweak position: top right bottom left */
+	margin: -20px 0 0 0; /* Adjust to tweak position: top right bottom left */
 }
 
 .rtl .collapse-btn {
 	float: left;
-	margin-left: 0; /* Adjust this to tweak left alignment */
+	margin-left: 0; /* Adjust to tweak left alignment */
 }

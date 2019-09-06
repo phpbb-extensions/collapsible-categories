@@ -1,29 +1,9 @@
 /* Import base collapsible categories stylesheet */
-@import url('../../all/theme/collapsiblecategories.css');
+@import url("../../all/theme/collapsiblecategories.css");
 
 /* Styling overrides for we_clearblue theme */
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #fafcfe; /* Button bg color */
-	border-color: #525252; /* Button border color */
 	margin: -26px 6px 0 0;
-}
-
-.collapse-btn:after,
-.collapse-btn:before {
-	background: #fafcfe; /* Button bg color */
-	border-color: #525252; /* Symbol bg color */
-}
-
-.collapse-btn:hover,
-.collapse-btn:hover:after,
-.collapse-btn:hover:before {
-	background-color: #fafcfe; /* Button hover color */
-}
-
-/* Collapse show hide symbols */
-.collapse-hide,
-.collapse-show {
-	border-radius: 3px;
 }

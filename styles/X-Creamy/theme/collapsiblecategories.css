@@ -1,16 +1,9 @@
 /* Import base collapsible categories stylesheet */
-@import url('../../all/theme/collapsiblecategories.css');
+@import url("../../all/theme/collapsiblecategories.css");
 
 /* Styling overrides for X-Creamy theme */
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #f1e3c0; /* Button bg color */
-	border-color: #998979; /* Button border color */
 	margin: -24px 0 0 0;
-}
-
-.collapse-btn:after,
-.collapse-btn:before {
-	border-color: #998979; /* Symbol bg color */
 }
