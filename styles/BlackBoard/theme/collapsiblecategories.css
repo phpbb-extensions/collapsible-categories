@@ -5,18 +5,5 @@
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #111111; /* Button bg color */
-	border-color: #3d3d3d; /* Button border color */
-	margin: -15px 3px 0 0;
-}
-
-.collapse-btn:after,
-.collapse-btn:before {
-	border-color: #777777; /* Symbol bg color */
-}
-
-.collapse-btn:hover,
-.collapse-btn:hover:after,
-.collapse-btn:hover:before {
-	background-color: #3d3d3d; /* Button hover color */
+	margin: -12px 3px 0;
 }

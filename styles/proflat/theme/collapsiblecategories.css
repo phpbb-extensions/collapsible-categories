@@ -1,28 +1,9 @@
 /* Import base collapsible categories stylesheet */
-@import url('../../all/theme/collapsiblecategories.css');
+@import url("../../all/theme/collapsiblecategories.css");
 
 /* Styling overrides for proflat theme */
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #f5f5f5; /* Button bg color */
-	border-color: #e5e5e5; /* Button border color */
-	margin: -27px 10px 0 0;
-}
-
-.collapse-btn:after,
-.collapse-btn:before {
-	border-color: #4c5d77; /* Symbol bg color */
-}
-
-.collapse-btn:hover,
-.collapse-btn:hover:after,
-.collapse-btn:hover:before {
-	background-color: #e5e5e5; /* Button hover color */
-}
-
-/* Collapse show hide symbols */
-.collapse-hide,
-.collapse-show {
-	border-radius: 0;
+	margin: -27px 10px 0;
 }

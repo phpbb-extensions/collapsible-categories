@@ -1,22 +1,9 @@
 /* Import base collapsible categories stylesheet */
-@import url('../../all/theme/collapsiblecategories.css');
+@import url("../../all/theme/collapsiblecategories.css");
 
 /* Styling overrides for Carbon theme */
 
 /* Collapse button */
 .collapse-btn {
-	background-color: #555555; /* Button bg color */
-	border-color: #fafafa; /* Button border color */
-	margin: -24px 0 0 0;
-}
-
-.collapse-btn:after,
-.collapse-btn:before {
-	border-color: #fafafa; /* Symbol bg color */
-}
-
-.collapse-btn:hover,
-.collapse-btn:hover:after,
-.collapse-btn:hover:before {
-	background-color: #686868; /* Button hover color */
+	margin-top: -24px;
 }
