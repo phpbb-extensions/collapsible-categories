@@ -38,5 +38,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Alterne a visibilidade dessa categoria fórum',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Ocultar esta categoria de fórum',
+		1 => 'Mostrar esta categoria de fórum',
+	),
 ));

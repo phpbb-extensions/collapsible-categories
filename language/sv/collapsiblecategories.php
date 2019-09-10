@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Växla synligheten för denna forum kategori',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Dölj denna forum kategori',
+		1 => 'Visa denna forum kategori',
+	),
 ));

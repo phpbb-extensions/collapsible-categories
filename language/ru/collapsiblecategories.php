@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Скрыть/показать этих категорий на форуме',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Скрыть эту категорию форума',
+		1 => 'Показать эту категорию форума',
+	),
 ));

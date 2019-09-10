@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Afficher / masquer le contenu de cette catégorie',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Masquer le contenu de cette catégorie',
+		1 => 'Afficher le contenu de cette catégorie',
+	),
 ));

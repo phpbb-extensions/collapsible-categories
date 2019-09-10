@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Proširi/Suzi prikaz ove kategorije foruma',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Sakrij ovu kategoriju foruma',
+		1 => 'Prikaži ovu kategoriju foruma',
+	),
 ));
