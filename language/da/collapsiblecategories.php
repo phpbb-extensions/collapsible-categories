@@ -38,5 +38,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Skift synligheden af denne forumkategori',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Skjul denne forumkategori',
+		1 => 'Vis denne forumkategori',
+	),
 ));

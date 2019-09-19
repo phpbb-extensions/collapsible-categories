@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Kahanda või laienda foorumi kategooria nähtavust',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Peida see foorum kategooria',
+		1 => 'Kuva selle foorumi kategooria',
+	),
 ));

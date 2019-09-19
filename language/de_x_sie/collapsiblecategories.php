@@ -38,5 +38,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Sichtbarkeit der Forum-Kategorie umschalten.',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Diese Forumkategorie ausblenden',
+		1 => 'Diese Forumkategorie anzeigen',
+	),
 ));

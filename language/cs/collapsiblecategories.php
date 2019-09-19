@@ -38,5 +38,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'P&#345;epnout viditelnost t&eacute;to kategorie f&oacute;ra',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Skrýt tuto kategorii fóra',
+		1 => 'Zobrazit tuto kategorie fóra',
+	),
 ));

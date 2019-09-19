@@ -38,5 +38,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Bu forum kategorisinin görünürlüğünü değiştir',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => 'Bu forum kategorisini gizle',
+		1 => 'Bu forum kategorisini göster',
+	),
 ));

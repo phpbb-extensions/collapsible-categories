@@ -1,0 +1,10 @@
+<a href="{{ U_CC_COLLAPSE_URL }}"
+   class="collapse-btn"
+   data-hidden="{{ S_CC_FORUM_HIDDEN }}"
+   data-ajax="phpbb_collapse"
+   data-overlay="true"
+   data-title-alt="{{ lang('COLLAPSIBLE_CATEGORIES_TITLE', ((not S_CC_FORUM_HIDDEN) * 1)) }}"
+   title="{{ lang('COLLAPSIBLE_CATEGORIES_TITLE', (S_CC_FORUM_HIDDEN * 1)) }}"
+   style="display: none; line-height: 0;">
+	<i class="fa {% if S_CC_FORUM_HIDDEN %}fa-plus-square{% else %}fa-minus-square{% endif %}"></i>
+</a>

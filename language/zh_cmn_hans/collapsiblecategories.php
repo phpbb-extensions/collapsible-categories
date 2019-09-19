@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> '论坛板块折叠开关',
+	'COLLAPSIBLE_CATEGORIES_TITLE'	=> array(
+		0 => '论坛板块折叠开关',
+		1 => '论坛板块折叠开关',
+	),
 ));
