@@ -65,7 +65,7 @@ class set_categories_test extends operator_base
 		$this->set_operator();
 
 		// Assert set_cookie() method is setting the expected data array
-		$this->user->expects($this->any())
+		$this->user->expects($this->once())
 			->method('set_cookie')
 			->with($this->anything(), json_encode($expected), $this->anything());
 

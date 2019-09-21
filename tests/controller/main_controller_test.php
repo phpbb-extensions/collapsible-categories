@@ -23,7 +23,7 @@ class main_controller_test extends \phpbb_test_case
 		$operator->expects($this->any())
 			->method('set_user_categories')
 			->with($forum_id)
-			->will($this->returnValue($result));
+			->willReturn($result);
 
 		/** @var $request \PHPUnit_Framework_MockObject_MockObject|\phpbb\request\request */
 		$request = $this->getMockBuilder('\phpbb\request\request')
@@ -33,15 +33,15 @@ class main_controller_test extends \phpbb_test_case
 		// Override is_ajax() to return value of $is_ajax
 		$request->expects($this->any())
 			->method('is_ajax')
-			->will($this->returnValue($is_ajax));
+			->willReturn($is_ajax);
 
 		// Override variable() to return value of link hash
 		$request->expects($this->any())
 			->method('variable')
 			->with($this->anything())
-			->will($this->returnValueMap(array(
+			->willReturnMap(array(
 				array('hash', '', false, \phpbb\request\request_interface::REQUEST, generate_link_hash('collapsible_' . $forum_id))
-			)));
+			));
 
 		// Return an instance of the controller
 		return new \phpbb\collapsiblecategories\controller\main_controller($operator, $request);

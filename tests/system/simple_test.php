@@ -86,7 +86,7 @@ class simple_test extends \phpbb_test_case
 
 		// Mocked container should return the config object
 		// when encountering $this->container->get('config')
-		$this->container->expects($this->any())
+		$this->container->expects($this->once())
 			->method('get')
 			->with('config')
 			->willReturn($config);
