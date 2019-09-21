@@ -30,7 +30,7 @@ class operator_base extends \phpbb_database_test_case
 	/** @var \phpbb\collapsiblecategories\operator\operator */
 	protected $operator;
 
-	static protected function setup_extensions()
+	protected static function setup_extensions()
 	{
 		return array('phpbb/collapsiblecategories');
 	}
