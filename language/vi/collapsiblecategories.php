@@ -2,11 +2,11 @@
 /**
  *
  * Collapsible Categories extension for the phpBB Forum Software package.
+ * Vietnamese translate by phpBBVietnam <https://phpbbvietnam.com>
  *
  * @copyright (c) 2015 phpBB Limited <https://www.phpbb.com>
  * @license GNU General Public License, version 2 (GPL-2.0)
  *
- * Translated By : Bassel Taha Alhitary - www.alhitary.net
  */
 
 /**
@@ -39,5 +39,5 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'	=> 'عرض أو إخفاء منتديات هذا القسم',
+	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Thu nhỏ chuyên mục',
 ));

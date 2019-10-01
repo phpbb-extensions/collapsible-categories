@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "An extension for phpBB that allows visitors to collapse and minimise forum categories with a simple click.",
 	"homepage": "https://www.phpbb.com",
-	"version": "2.0.0-dev",
+	"version": "2.0.0",
 	"license": "GPL-2.0-only",
 	"authors": [
 		{
@@ -24,14 +24,14 @@
 			"role": "Extensions Development Team Lead"
 		},
 		{
-			"name": "Clemens Husung",
-			"email": "wolfsblvt@pinkes-forum.de",
-			"role": "Extensions Development Team"
-		},
-		{
 			"name": "Ruslan Uzdenov",
 			"homepage": "http://www.phpbbguru.net",
 			"role": "Extensions Development Team"
+		},
+		{
+			"name": "Clemens Husung",
+			"email": "wolfsblvt@pinkes-forum.de",
+			"role": "Former Extensions Development Team Member"
 		}
 	],
 	"require": {

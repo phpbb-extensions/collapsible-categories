@@ -1,0 +1,10 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for SE Gamer theme */
+
+/* Collapse button */
+.collapse-btn {
+	font-size: 1.3rem !important;
+	margin: -30px 10px 0;
+}

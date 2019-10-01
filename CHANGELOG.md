@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.0.0 - 2019-09-21
+
+- Redesigned the collapsible button to use Font Awesome font-icons for easier and more consistent integration with other styles
+- Updated the tooltip shown when hovering over the collapsible button to show more specific text, e.g.: "Show this forum" and "Hide this forum"
+- Dropped support for phpBB 3.1.x
+- Added style support for:
+    - 1982
+    - 1996
+    - Absolution
+    - Black
+    - Blackboard
+    - Blackfog
+    - Chester Blue
+    - Clean-Boardz
+    - CleanSilver
+    - Maxthon
+    - Multi-Design
+    - Prolight
+    - Quantum Codex
+    - SE Gamer
+    - Silver Xmas Modern
+    - WildWest
+- Added language packs for:
+	- Vietnamese
+
 ## 1.0.3 - 2018-06-25
 
 - Added style support for:

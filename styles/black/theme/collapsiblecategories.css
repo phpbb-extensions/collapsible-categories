@@ -1,0 +1,9 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Black theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin-top: -18px;
+}

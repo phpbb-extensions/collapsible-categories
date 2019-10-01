@@ -1,0 +1,9 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Absolution theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin: -30px 12px 0;
+}
