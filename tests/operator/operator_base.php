@@ -40,7 +40,7 @@ class operator_base extends \phpbb_database_test_case
 		return $this->createXMLDataSet(__DIR__ . '/fixtures/users.xml');
 	}
 
-	protected function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 

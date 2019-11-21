@@ -34,7 +34,7 @@ class listener_test extends \phpbb_test_case
 	{
 		parent::setUp();
 
-		global $phpbb_root_path, $phpEx;
+		global $user, $phpbb_root_path, $phpEx;
 
 		$this->controller_helper = $this->getMockBuilder('\phpbb\controller\helper')
 			->disableOriginalConstructor()
@@ -45,7 +45,7 @@ class listener_test extends \phpbb_test_case
 				return $route . '#' . serialize($params);
 			});
 
-		$this->user = $this->getMockBuilder('\phpbb\user')
+		$this->user = $user = $this->getMockBuilder('\phpbb\user')
 			->setConstructorArgs(array(
 				new \phpbb\language\language(new \phpbb\language\language_file_loader($phpbb_root_path, $phpEx)),
 				'\phpbb\datetime'
