@@ -14,6 +14,12 @@ class main_controller_test extends \phpbb_test_case
 {
 	public function get_controller($forum_id, $is_ajax = false, $result = false, $invoked = false)
 	{
+		global $user;
+
+		$user = $this->getMockBuilder('\phpbb\user')
+			->disableOriginalConstructor()
+			->getMock();
+
 		/** @var $operator \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator */
 		$operator = $this->getMockBuilder('\phpbb\collapsiblecategories\operator\operator')
 			->setMethods(['set_user_categories'])
