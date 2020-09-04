@@ -29,7 +29,7 @@ class set_categories_test extends operator_base
 		$this->set_operator();
 
 		// Assert that the db update result is true
-		$this->assertTrue($this->operator->set_user_categories($forum_id));
+		self::assertTrue($this->operator->set_user_categories($forum_id));
 	}
 
 	/**
@@ -44,7 +44,7 @@ class set_categories_test extends operator_base
 		$this->set_operator();
 
 		// Assert that the db update result is false
-		$this->assertFalse($this->operator->set_user_categories('bar_1'));
+		self::assertFalse($this->operator->set_user_categories('bar_1'));
 	}
 
 	/**
@@ -65,11 +65,11 @@ class set_categories_test extends operator_base
 		$this->set_operator();
 
 		// Assert set_cookie() method is setting the expected data array
-		$this->user->expects($this->once())
+		$this->user->expects(self::once())
 			->method('set_cookie')
-			->with($this->anything(), json_encode($expected), $this->anything());
+			->with(self::anything(), json_encode($expected), self::anything());
 
 		// Assert set_cookie_categories() sets the expected data return result
-		$this->assertTrue($this->operator->set_cookie_categories($forum_id));
+		self::assertTrue($this->operator->set_cookie_categories($forum_id));
 	}
 }

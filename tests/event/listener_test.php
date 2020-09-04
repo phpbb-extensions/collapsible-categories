@@ -30,7 +30,7 @@ class listener_test extends \phpbb_test_case
 	/**
 	 * Setup test environment
 	 */
-	public function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -39,7 +39,7 @@ class listener_test extends \phpbb_test_case
 		$this->controller_helper = $this->getMockBuilder('\phpbb\controller\helper')
 			->disableOriginalConstructor()
 			->getMock();
-		$this->controller_helper->expects($this->atMost(1))
+		$this->controller_helper->expects(self::atMost(1))
 			->method('route')
 			->willReturnCallback(function ($route, array $params = array()) {
 				return $route . '#' . serialize($params);
@@ -51,6 +51,7 @@ class listener_test extends \phpbb_test_case
 				'\phpbb\datetime'
 			))
 			->getMock();
+		$user->data['user_form_salt'] = '';
 
 		// Stub of the operator class
 		$this->operator = new \phpbb\collapsiblecategories\operator\operator(
@@ -88,7 +89,7 @@ class listener_test extends \phpbb_test_case
 	public function test_construct()
 	{
 		$this->set_listener();
-		$this->assertInstanceOf('\Symfony\Component\EventDispatcher\EventSubscriberInterface', $this->listener);
+		self::assertInstanceOf('\Symfony\Component\EventDispatcher\EventSubscriberInterface', $this->listener);
 	}
 
 	/**
@@ -96,7 +97,7 @@ class listener_test extends \phpbb_test_case
 	 */
 	public function test_getSubscribedEvents()
 	{
-		$this->assertEquals(array(
+		self::assertEquals(array(
 			'core.user_setup',
 			'core.display_forums_modify_category_template_vars',
 			'core.display_forums_modify_template_vars',
@@ -208,7 +209,7 @@ class listener_test extends \phpbb_test_case
 		$forum_row = key($data_map);
 
 		// Assert the event data object is updated as expected
-		$this->assertSame($expected, $data[$forum_row]);
+		self::assertSame($expected, $data[$forum_row]);
 	}
 
 	/**
@@ -225,7 +226,7 @@ class listener_test extends \phpbb_test_case
 		$this->listener->load_language_on_setup($data);
 
 		// Assert the event data object is updated as expected
-		$this->assertEquals(array(
+		self::assertEquals(array(
 			array(
 				'ext_name' => 'phpbb/collapsiblecategories',
 				'lang_set' => 'collapsiblecategories',
