@@ -36,6 +36,6 @@ class add_user_test extends \phpbb_functional_test_case
 		$this->add_lang('acp/users');
 
 		// Assert a user is successfully created
-		$this->assertGreaterThan(0, $this->create_user('testuser'));
+		self::assertGreaterThan(0, $this->create_user('testuser'));
 	}
 }
