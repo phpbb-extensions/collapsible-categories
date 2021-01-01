@@ -19,6 +19,7 @@ class main_controller_test extends \phpbb_test_case
 		$user = $this->getMockBuilder('\phpbb\user')
 			->disableOriginalConstructor()
 			->getMock();
+		$user->data['user_form_salt'] = '';
 
 		/** @var $operator \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator */
 		$operator = $this->getMockBuilder('\phpbb\collapsiblecategories\operator\operator')
@@ -27,7 +28,7 @@ class main_controller_test extends \phpbb_test_case
 			->getMock();
 
 		// Override set_user_categories() to expect $forum_id and return value of $result
-		$operator->expects($invoked ? $this->once() : $this->never())
+		$operator->expects($invoked ? self::once() : self::never())
 			->method('set_user_categories')
 			->with($forum_id)
 			->willReturn($result);
@@ -38,14 +39,14 @@ class main_controller_test extends \phpbb_test_case
 			->getMock();
 
 		// Override is_ajax() to return value of $is_ajax
-		$request->expects($this->atMost(1))
+		$request->expects(self::atMost(1))
 			->method('is_ajax')
 			->willReturn($is_ajax);
 
 		// Override variable() to return value of link hash
-		$request->expects($invoked ? $this->once() : $this->never())
+		$request->expects($invoked ? self::once() : self::never())
 			->method('variable')
-			->with($this->anything())
+			->with(self::anything())
 			->willReturnMap(array(
 				array('hash', '', false, \phpbb\request\request_interface::REQUEST, generate_link_hash('collapsible_' . $forum_id))
 			));
@@ -82,12 +83,12 @@ class main_controller_test extends \phpbb_test_case
 	public function test_main($forum_id, $is_ajax, $result, $status_code, $content)
 	{
 		$controller = $this->get_controller($forum_id, $is_ajax, $result, true);
-		$this->assertInstanceOf('\phpbb\collapsiblecategories\controller\main_controller', $controller);
+		self::assertInstanceOf('\phpbb\collapsiblecategories\controller\main_controller', $controller);
 
 		$response = $controller->handle($forum_id);
-		$this->assertInstanceOf('\Symfony\Component\HttpFoundation\JsonResponse', $response);
-		$this->assertEquals($status_code, $response->getStatusCode());
-		$this->assertEquals($content, $response->getContent());
+		self::assertInstanceOf('\Symfony\Component\HttpFoundation\JsonResponse', $response);
+		self::assertEquals($status_code, $response->getStatusCode());
+		self::assertEquals($content, $response->getContent());
 	}
 
 	/**
@@ -124,17 +125,17 @@ class main_controller_test extends \phpbb_test_case
 	public function test_main_fails($forum_id, $is_ajax, $status_code, $content)
 	{
 		$controller = $this->get_controller($forum_id, $is_ajax);
-		$this->assertInstanceOf('\phpbb\collapsiblecategories\controller\main_controller', $controller);
+		self::assertInstanceOf('\phpbb\collapsiblecategories\controller\main_controller', $controller);
 
 		try
 		{
 			$controller->handle($forum_id);
-			$this->fail('The expected \phpbb\exception\http_exception was not thrown');
+			self::fail('The expected \phpbb\exception\http_exception was not thrown');
 		}
 		catch (\phpbb\exception\http_exception $exception)
 		{
-			$this->assertEquals($status_code, $exception->getStatusCode());
-			$this->assertEquals($content, $exception->getMessage());
+			self::assertEquals($status_code, $exception->getStatusCode());
+			self::assertEquals($content, $exception->getMessage());
 		}
 	}
 }

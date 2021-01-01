@@ -95,7 +95,7 @@ class operator_base extends \phpbb_database_test_case
 
 		$this->operator = new \phpbb\collapsiblecategories\operator\operator($this->config, $this->db, $this->controller_helper, $this->request, $this->user);
 
-		$this->assertInstanceOf('\phpbb\collapsiblecategories\operator\operator', $this->operator);
+		self::assertInstanceOf('\phpbb\collapsiblecategories\operator\operator', $this->operator);
 	}
 
 	/**

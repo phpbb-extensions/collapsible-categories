@@ -28,7 +28,7 @@ class get_categories_test extends operator_base
 		$this->set_operator();
 
 		// Assert the get the expected data
-		$this->assertEquals($data, $this->operator->get_user_categories());
+		self::assertEquals($data, $this->operator->get_user_categories());
 	}
 
 	/**
@@ -47,6 +47,6 @@ class get_categories_test extends operator_base
 		$this->set_operator();
 
 		// Assert we get the cookie and it has the expected data
-		$this->assertEquals($data, $this->operator->get_cookie_categories());
+		self::assertEquals($data, $this->operator->get_cookie_categories());
 	}
 }
