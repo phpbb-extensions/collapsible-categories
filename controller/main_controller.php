@@ -15,17 +15,17 @@ use phpbb\request\request;
 
 class main_controller implements main_interface
 {
-	/** @var \phpbb\collapsiblecategories\operator\operator */
+	/** @var operator */
 	protected $operator;
 
-	/** @var \phpbb\request\request */
+	/** @var request */
 	protected $request;
 
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\collapsiblecategories\operator\operator $operator Operator object
-	 * @param \phpbb\request\request                         $request  Request object
+	 * @param operator $operator Operator object
+	 * @param request  $request  Request object
 	 */
 	public function __construct(operator $operator, request $request)
 	{

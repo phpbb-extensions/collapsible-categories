@@ -19,17 +19,17 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class listener implements EventSubscriberInterface
 {
-	/** @var \phpbb\collapsiblecategories\operator\operator_interface */
+	/** @var operator_interface */
 	protected $operator;
 
-	/** @var \phpbb\template\template */
+	/** @var template */
 	protected $template;
 
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\collapsiblecategories\operator\operator_interface $operator Collapsible categories operator object
-	 * @param \phpbb\template\template                                 $template Template object
+	 * @param operator_interface $operator Collapsible categories operator object
+	 * @param template           $template Template object
 	 */
 	public function __construct(operator_interface $operator, template $template)
 	{
