@@ -24,29 +24,29 @@ class operator implements operator_interface
 	/** @var array An array of collapsed category forum identifiers */
 	protected $collapsed_categories;
 
-	/** @var \phpbb\config\config */
+	/** @var config */
 	protected $config;
 
-	/** @var \phpbb\db\driver\driver_interface */
+	/** @var driver_interface */
 	protected $db;
 
-	/** @var \phpbb\controller\helper */
+	/** @var helper */
 	protected $helper;
 
-	/** @var \phpbb\request\request */
+	/** @var request */
 	protected $request;
 
-	/** @var \phpbb\user */
+	/** @var user */
 	protected $user;
 
 	/**
 	 * Constructor
 	 *
-	 * @param \phpbb\config\config              $config  Config object
-	 * @param \phpbb\db\driver\driver_interface $db      Database object
-	 * @param \phpbb\controller\helper          $helper  Controller helper object
-	 * @param \phpbb\request\request            $request Request object
-	 * @param \phpbb\user                       $user    User object
+	 * @param config           $config  Config object
+	 * @param driver_interface $db      Database object
+	 * @param helper           $helper  Controller helper object
+	 * @param request          $request Request object
+	 * @param user             $user    User object
 	 */
 	public function __construct(config $config, driver_interface $db, helper $helper, request $request, user $user)
 	{
