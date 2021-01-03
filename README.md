@@ -4,6 +4,7 @@ This is the repository for the development of the Collapsible Categories Extensi
 
 [![Build Status](https://github.com/phpbb-extensions/collapsible-categories/workflows/Tests/badge.svg)](https://github.com/phpbb-extensions/collapsible-categories/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/?branch=master)
+[![codecov](https://codecov.io/gh/phpbb-extensions/collapsible-categories/branch/master/graph/badge.svg?token=oB6bt9E4Bj)](https://codecov.io/gh/phpbb-extensions/collapsible-categories)
 
 ## Quick Install
 You can install this on the latest release of phpBB 3.2 by following the steps below:
