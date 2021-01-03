@@ -2,11 +2,8 @@
 
 This is the repository for the development of the Collapsible Categories Extension for phpBB 3.2
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/02f8e3ba-3420-4ad2-835b-ed1d6e493234/big.png)](https://insight.sensiolabs.com/projects/02f8e3ba-3420-4ad2-835b-ed1d6e493234)
-
 [![Build Status](https://github.com/phpbb-extensions/collapsible-categories/workflows/Tests/badge.svg)](https://github.com/phpbb-extensions/collapsible-categories/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/?branch=master)
 
 ## Quick Install
 You can install this on the latest release of phpBB 3.2 by following the steps below:
