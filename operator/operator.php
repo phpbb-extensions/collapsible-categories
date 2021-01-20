@@ -131,7 +131,7 @@ class operator implements operator_interface
 	public function get_cookie_categories()
 	{
 		// Get categories from the cookie and htmlspecialchars decode it
-		$cookie_data = htmlspecialchars_decode($this->request->variable($this->config['cookie_name'] . '_ccat', '', true, \phpbb\request\request_interface::COOKIE));
+		$cookie_data = htmlspecialchars_decode($this->request->variable($this->config['cookie_name'] . '_ccat', '', true, \phpbb\request\request_interface::COOKIE), ENT_COMPAT);
 
 		// json decode the cookie data and return an array
 		return (array) json_decode($cookie_data, true);
