@@ -21,7 +21,7 @@ class main_controller_test extends \phpbb_test_case
 			->getMock();
 		$user->data['user_form_salt'] = '';
 
-		/** @var $operator \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator */
+		/** @var $operator \PHPUnit\Framework\MockObject\MockObject|\phpbb\collapsiblecategories\operator\operator */
 		$operator = $this->getMockBuilder('\phpbb\collapsiblecategories\operator\operator')
 			->setMethods(['set_user_categories'])
 			->disableOriginalConstructor()
@@ -33,7 +33,7 @@ class main_controller_test extends \phpbb_test_case
 			->with($forum_id)
 			->willReturn($result);
 
-		/** @var $request \PHPUnit_Framework_MockObject_MockObject|\phpbb\request\request */
+		/** @var $request \PHPUnit\Framework\MockObject\MockObject|\phpbb\request\request */
 		$request = $this->getMockBuilder('\phpbb\request\request')
 			->disableOriginalConstructor()
 			->getMock();
