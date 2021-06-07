@@ -1,0 +1,15 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for 1978 theme */
+
+/* Collapse button */
+.collapse-btn {
+	font-size: 1.25rem !important;
+	margin-top: -25px;
+	padding-right: 5px;
+}
+
+.rtl .collapse-btn {
+	padding-left: 5px;
+}

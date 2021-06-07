@@ -1,0 +1,14 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Earth theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin-top: -24px;
+	padding-right: 10px;
+}
+
+.rtl .collapse-btn {
+	padding-left: 10px;
+}
