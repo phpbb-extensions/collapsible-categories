@@ -1,0 +1,14 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for stasis-leak theme */
+
+/* Collapse button */
+.collapse-btn {
+	margin-top: -26px;
+	padding-right: 7px;
+}
+
+.rtl .collapse-btn {
+	padding-left: 7px;
+}

@@ -1,0 +1,15 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for reds2020 theme */
+
+/* Collapse button */
+.collapse-btn {
+	font-size: .8rem !important;
+	margin-top: -18px;
+	padding-right: 5px;
+}
+
+.rtl .collapse-btn {
+	padding-left: 5px;
+}
