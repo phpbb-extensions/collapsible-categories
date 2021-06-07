@@ -31,7 +31,10 @@
 			var oldTitle = $(this).attr('title'),
 				newTitle = $(this).attr('data-title-alt');
 			$(this)
-				.attr({'title': newTitle, 'data-title-alt': oldTitle})
+				.attr({
+					'title': newTitle,
+					'data-title-alt': oldTitle
+				})
 				.find('i')
 				.toggleClass('fa-plus-square fa-minus-square')
 				.end()

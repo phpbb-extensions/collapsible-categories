@@ -12,16 +12,16 @@ namespace phpbb\collapsiblecategories\tests\event;
 
 class listener_test extends \phpbb_test_case
 {
-	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\controller\helper */
+	/** @var \PHPUnit\Framework\MockObject\MockObject|\phpbb\controller\helper */
 	protected $controller_helper;
 
 	/** @var \phpbb\collapsiblecategories\event\listener */
 	protected $listener;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\collapsiblecategories\operator\operator_interface */
+	/** @var \PHPUnit\Framework\MockObject\MockObject|\phpbb\collapsiblecategories\operator\operator_interface */
 	protected $operator;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\template\template */
+	/** @var \PHPUnit\Framework\MockObject\MockObject|\phpbb\template\template */
 	protected $template;
 
 	/** @var \phpbb\user */

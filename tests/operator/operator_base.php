@@ -18,13 +18,13 @@ class operator_base extends \phpbb_database_test_case
 	/** @var \phpbb\config\config */
 	protected $config;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\controller\helper */
+	/** @var \PHPUnit\Framework\MockObject\MockObject|\phpbb\controller\helper */
 	protected $controller_helper;
 
 	/** @var \phpbb\request\request */
 	protected $request;
 
-	/** @var \PHPUnit_Framework_MockObject_MockObject|\phpbb\user */
+	/** @var \PHPUnit\Framework\MockObject\MockObject|\phpbb\user */
 	protected $user;
 
 	/** @var \phpbb\collapsiblecategories\operator\operator */

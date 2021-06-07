@@ -31,7 +31,7 @@ class m1_schema extends \phpbb\db\migration\migration
 	 * @return array Array of migration files
 	 * @static
 	 */
-	static public function depends_on()
+	public static function depends_on()
 	{
 		return array('\phpbb\db\migration\data\v31x\v313');
 	}
