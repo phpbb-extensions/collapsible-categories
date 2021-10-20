@@ -17,7 +17,7 @@
 			return;
 		}
 
-		// Unhide the collapse buttons (makes them JS dependent)
+		// Show the collapse buttons (makes them JS dependent)
 		$this.show();
 
 		// Hide hidden forums on load

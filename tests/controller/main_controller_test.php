@@ -23,7 +23,7 @@ class main_controller_test extends \phpbb_test_case
 
 		/** @var $operator \PHPUnit\Framework\MockObject\MockObject|\phpbb\collapsiblecategories\operator\operator */
 		$operator = $this->getMockBuilder('\phpbb\collapsiblecategories\operator\operator')
-			->setMethods(['set_user_categories'])
+			->onlyMethods(['set_user_categories'])
 			->disableOriginalConstructor()
 			->getMock();
 
