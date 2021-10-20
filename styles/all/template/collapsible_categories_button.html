@@ -6,5 +6,11 @@
    data-title-alt="{{ lang(L_CC_BUTTON_TITLE, not S_CC_FORUM_HIDDEN ? 1 : 0) }}"
    title="{{ lang(L_CC_BUTTON_TITLE, S_CC_FORUM_HIDDEN ? 1 : 0) }}"
    style="display: none; line-height: 0;">
-	<i class="fa {% if S_CC_FORUM_HIDDEN %}fa-plus-square{% else %}fa-minus-square{% endif %}"></i>
+	{% if S_CC_FORUM_HIDDEN %}
+		{{ Icon('iconify', 'fa:plus-square', '', true, ('c-watch-icon is-active')) }}
+		{{ Icon('iconify', 'fa:minus-square', '', true, ('c-watch-icon')) }}
+	{% else %}
+		{{ Icon('iconify', 'fa:minus-square', '', true, ('c-watch-icon is-active')) }}
+		{{ Icon('iconify', 'fa:plus-square', '', true, ('c-watch-icon')) }}
+	{% endif %}
 </a>

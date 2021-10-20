@@ -35,8 +35,8 @@
 					'title': newTitle,
 					'data-title-alt': oldTitle
 				})
-				.find('i')
-				.toggleClass('fa-plus-square fa-minus-square')
+				.find('.c-watch-icon')
+				.toggleClass('is-active')
 				.end()
 				.getCollapsible()
 				.stop(true, true)
