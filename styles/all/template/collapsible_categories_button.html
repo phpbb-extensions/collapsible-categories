@@ -1,16 +1,9 @@
-<a href="{{ U_CC_COLLAPSE_URL }}"
-   class="collapse-btn"
-   data-hidden="{{ S_CC_FORUM_HIDDEN }}"
-   data-ajax="phpbb_collapse"
-   data-overlay="true"
-   data-title-alt="{{ lang(L_CC_BUTTON_TITLE, not S_CC_FORUM_HIDDEN ? 1 : 0) }}"
-   title="{{ lang(L_CC_BUTTON_TITLE, S_CC_FORUM_HIDDEN ? 1 : 0) }}"
-   style="display: none; line-height: 0;">
+<a href="{{ U_CC_COLLAPSE_URL }}" class="collapse-btn" data-hidden="{{ S_CC_FORUM_HIDDEN }}" data-ajax="phpbb_collapse" data-overlay="true" style="line-height: 0; display: none;">
 	{% if S_CC_FORUM_HIDDEN %}
-		{{ Icon('iconify', 'fa:plus-square', '', true, ('c-watch-icon is-active')) }}
-		{{ Icon('iconify', 'fa:minus-square', '', true, ('c-watch-icon')) }}
+		{{ Icon('iconify', 'bi:caret-left-square', lang(L_CC_BUTTON_TITLE, 1), true, ('c-watch-icon is-active')) }}
+		{{ Icon('iconify', 'bi:caret-down-square', lang(L_CC_BUTTON_TITLE, 0), true, ('c-watch-icon')) }}
 	{% else %}
-		{{ Icon('iconify', 'fa:minus-square', '', true, ('c-watch-icon is-active')) }}
-		{{ Icon('iconify', 'fa:plus-square', '', true, ('c-watch-icon')) }}
+		{{ Icon('iconify', 'bi:caret-down-square', lang(L_CC_BUTTON_TITLE, 0), true, ('c-watch-icon is-active')) }}
+		{{ Icon('iconify', 'bi:caret-left-square', lang(L_CC_BUTTON_TITLE, 1), true, ('c-watch-icon')) }}
 	{% endif %}
 </a>
