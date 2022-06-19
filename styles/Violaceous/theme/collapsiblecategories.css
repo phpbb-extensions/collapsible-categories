@@ -1,0 +1,13 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for Violaceous theme */
+
+/* Collapse button */
+.collapse-btn {
+	padding-right: 5px;
+}
+
+.rtl .collapse-btn {
+	padding-left: 5px;
+}

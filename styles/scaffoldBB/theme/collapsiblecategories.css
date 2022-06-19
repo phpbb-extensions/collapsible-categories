@@ -1,0 +1,10 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for scaffoldBB theme */
+
+/* Collapse button */
+.collapse-btn {
+	color: #ffffff;
+	margin-top: -26px;
+}
