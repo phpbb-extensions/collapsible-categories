@@ -12,7 +12,7 @@ namespace phpbb\collapsiblecategories\controller;
 
 /**
  * Interface main_interface
- * This describes all of the methods for the main controller
+ * This describes all the methods for the main controller
  *
  * @package phpbb\collapsiblecategories\controller
  */
@@ -26,7 +26,7 @@ interface main_interface
 	 *
 	 * @param string $forum_id A forum identifier
 	 *
-	 * @throws \phpbb\exception\http_exception An http exception
+	 * @throws \phpbb\exception\http_exception A http exception
 	 * @return \Symfony\Component\HttpFoundation\JsonResponse A Symfony JSON Response object
 	 */
 	public function handle($forum_id);

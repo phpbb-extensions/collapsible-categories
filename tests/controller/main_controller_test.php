@@ -112,7 +112,7 @@ class main_controller_test extends \phpbb_test_case
 	}
 
 	/**
-	 * Test an http_exception is immediately thrown for
+	 * Test a http_exception is immediately thrown for
 	 * non-AJAX requests and empty forum_id values.
 	 *
 	 * @param $forum_id

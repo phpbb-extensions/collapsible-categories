@@ -1,0 +1,11 @@
+/* Import base collapsible categories stylesheet */
+@import url("../../all/theme/collapsiblecategories.css");
+
+/* Styling overrides for scaffoldBB theme */
+
+/* Collapse button */
+.collapse-btn {
+	--bs-text-opacity: 1;
+	color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+	margin: -25px 0 0;
+}

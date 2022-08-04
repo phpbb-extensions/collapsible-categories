@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.1 - 2022-06-18
+
+- Allow extensions to change the text of the collapse button tooltip
+- Added style support for:
+    - 1978
+    - CelticDreams
+    - Earth
+    - Reds (2020)
+    - Stasis Leak
+    - scaffoldBB
+    - Violaceous
+- Added language packs for:
+    - Hebrew
+    - Slovenian
+
 ## 2.0.0 - 2019-09-21
 
 - Redesigned the collapsible button to use Font Awesome font-icons for easier and more consistent integration with other styles

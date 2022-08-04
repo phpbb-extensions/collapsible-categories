@@ -12,7 +12,7 @@ namespace phpbb\collapsiblecategories\operator;
 
 /**
  * Interface operator_interface
- * This describes all of the methods for processing collapsed category data
+ * This describes all the methods for processing collapsed category data
  *
  * @package phpbb\collapsiblecategories\operator
  */
