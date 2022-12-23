@@ -1,0 +1,17 @@
+title: Collapsible Categories Docs
+description: Welcome to the collapsible-categories docs!
+theme: just-the-docs
+color_scheme: dark
+
+url: https://phpbb-extensions.github.io/collapsible-categories
+
+aux_links:
+  Github Repository: https://github.com/phpbb-extensions/collapsible-categories
+
+callouts:
+    warning:
+        title: Warning
+        color: red
+    note:
+        title: note
+        color: yellow
