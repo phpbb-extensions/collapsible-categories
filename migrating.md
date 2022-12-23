@@ -1,5 +1,5 @@
 ---
-title: Migrating from version 1 to version 2
+title: Migrating from V1 to V2
 layout: default
 nav_order: 4
 ---
@@ -49,4 +49,4 @@ Should be updated to this for version 2:
 {% endraw %}
 
 {: .note }
-Notice that `S_FOO_HIDDEN` and `U_FOO_COLLAPSE_URL` are example variables. They may be named something different in your extension. See the [Adding Collapsible Categories to Extensions v2.x.x](v2xx.html) wiki for complete instructions on integrating Collapsible categories with your extension.
+Notice that `S_FOO_HIDDEN` and `U_FOO_COLLAPSE_URL` are example variables. They may be named something different in your extension. See the [Add Collapsible Categories v2 to Extensions](v2xx.html) wiki for complete instructions on integrating Collapsible categories with your extension.

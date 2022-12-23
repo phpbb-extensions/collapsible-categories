@@ -1,11 +1,13 @@
 ---
-title: Adding Collapsible Categories to Extensions - v1.x.x
+title: Add Collapsible Categories v1 to Extensions
 layout: default
 nav_order: 2
 ---
 
-{: .note }
-## Adding Collapsible Categories to Extensions - v1.x.x
+# Add Collapsible Categories v1 to Extensions
+
+{: .warning }
+This page contains documentation for the discontinued 1.x.x versions of Collapsible Categories. Refer to the [V2](v2xx.html) documentation for the current version of Collapsible Categories. 
 
 Adding Collapsible Forum Categories to an existing extension is easy for an extension author to achieve.
 

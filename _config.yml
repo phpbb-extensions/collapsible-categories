@@ -1,7 +1,7 @@
 title: Collapsible Categories Docs
 description: Welcome to the collapsible-categories docs!
 theme: just-the-docs
-color_scheme: dark
+#color_scheme: dark
 
 url: https://phpbb-extensions.github.io/collapsible-categories
 
@@ -15,3 +15,6 @@ callouts:
     note:
         title: note
         color: yellow
+    important:
+        title: important
+        color: blue
