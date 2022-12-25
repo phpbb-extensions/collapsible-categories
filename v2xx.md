@@ -45,6 +45,7 @@ CC's template events are designed for the `forumrow` loop and can not be used by
 	{# Start of Collapsible Categories #}
 	{% set S_CC_FORUM_HIDDEN = S_FOO_HIDDEN %}
 	{% set U_CC_COLLAPSE_URL = U_FOO_COLLAPSE_URL %}
+	{% set L_CC_BUTTON_TITLE = 'COLLAPSIBLE_CATEGORIES_TITLE' %}
 	{% include '@phpbb_collapsiblecategories/collapsible_categories_button.html' ignore missing %}
 	{# End of Collapsible Categories #}
 	```
@@ -52,9 +53,17 @@ CC's template events are designed for the `forumrow` loop and can not be used by
 	
 	{: .important }
 	The use of `ignore missing` must be present to prevent problems with the rendering of your extension when Collapsible Categories is not installed.
-	
-	{: .note }
-	Notice the variables `S_FOO_HIDDEN` and `U_FOO_COLLAPSE_URL`. We've already seen `S_FOO_HIDDEN` in the previous code example. These can be named whatever you want, and they will to be defined in the PHP code below.
+
+   3. `S_FOO_HIDDEN` - We've already seen this in the previous code example. This can be named whatever you want, and will to be defined in the Event listener as shown below.
+   4. `U_FOO_COLLAPSE_URL` - This can be named whatever you want, and will to be defined in the Event listener as shown below.
+   5. `COLLAPSIBLE_CATEGORIES_TITLE` - To use the default language variables for collapsible categories, do not change this. Or you can use your own language variables by renaming this, for example as `MCHAT_COLLAPSIBLE_TITLE`:<br><br>
+      ```php
+      // Inside mchat's language file 
+      'MCHAT_COLLAPSIBLE_TITLE' => [
+      	0 => 'Hide mChat',
+      	1 => 'Show mChat',
+      ],
+      ``` 
 
 3. If the element being collapsed does not have both the classes `topiclist forums` then you must add the class `collapsible` to the element that is being collapsed/expanded. For example, the MCHAT extension would be changed to:
 	
