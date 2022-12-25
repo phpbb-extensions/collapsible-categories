@@ -1,12 +1,13 @@
 title: Collapsible Categories Docs
-description: Welcome to the collapsible-categories docs!
+description: Welcome to the Collapsible Categories Docs
 theme: just-the-docs
 #color_scheme: dark
 
 url: https://phpbb-extensions.github.io/collapsible-categories
 
 aux_links:
-  Github Repository: https://github.com/phpbb-extensions/collapsible-categories
+  Download: https://www.phpbb.com/customise/db/extension/collapsible_forum_categories/
+  Support: https://www.phpbb.com/customise/db/extension/collapsible_forum_categories/support
 
 callouts:
     warning:
@@ -18,3 +19,18 @@ callouts:
     important:
         title: important
         color: blue
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# Footer content
+footer_content: "Copyright &copy; <a href=\"https://www.phpbb.com\">phpBB Limited</a>. Distributed by a <a href=\"https://github.com/phpbb-extensions/collapsible-categories/blob/master/license.txt\">GNU General Public License, version 2 (GPL-2.0)</a>"
+
+# Footer "Edit this page on GitHub" link text
+gh_edit_link: true # show or hide edit this page link
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/phpbb-extensions/collapsible-categories" # the github URL for your repo
+gh_edit_branch: "gh-pages" # the branch that your docs is served from
+# gh_edit_source: docs # the source that your files originate from
+gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately

@@ -1,7 +1,7 @@
 ---
 title: Add Collapsible Categories v2 to Extensions
 layout: default
-nav_order: 3
+nav_order: 2
 ---
 
 # Add Collapsible Categories v2 to Extensions

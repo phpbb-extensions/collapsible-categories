@@ -1,7 +1,7 @@
 ---
 title: Add Collapsible Categories v1 to Extensions
 layout: default
-nav_order: 2
+nav_order: 3
 ---
 
 # Add Collapsible Categories v1 to Extensions
@@ -59,7 +59,7 @@ If the element being collapsed does not have both the classes `topiclist forums`
 ## The Event Listener
 Now we need to assign the two template variables `U_FOO_COLLAPSE_URL` and `S_FOO_HIDDEN`.
 
-We can use WOI's `main()` function in the `event.php` class to assign these variables. We will also be needing the `$template`, `$helper` and CC's `$operator` objects, so they need to be added to the class constructor as dependencies (if not already there). The `$operator` object from CC will need to be optional, so it should be defined at the end of the arguments list with a default value of `null`.
+We can use WOI's `main()` function in the `event.php` class to assign these variables. We will also be needing the `$template` and CC's `$operator` objects, so they need to be added to the class constructor as dependencies (if not already there). The `$operator` object from CC will need to be optional, so it should be defined at the end of the arguments list with a default value of `null`.
 
 The constructor should look like:
 
@@ -67,13 +67,11 @@ The constructor should look like:
 public function __construct(
     \stoker\welcomeonindex\core\functions_welcomeonindex $functions,
     \phpbb\template\template $template,
-    \phpbb\controller\helper $helper,
     \phpbb\collapsiblecategories\operator\operator $operator = null
 )
 {
     $this->welcomeonindex_functions = $functions;
     $this->template = $template;
-    $this->helper = $helper;
     $this->operator = $operator;
 }
 ```
@@ -103,7 +101,6 @@ stoker.welcomeonindex.listener:
     arguments:
         - '@stoker.welcomeonindex.functions'
         - '@template'
-        - '@controller.helper'
         - '@?phpbb.collapsiblecategories.operator'
     tags:
         - { name: 'event.listener' }
