@@ -44,6 +44,7 @@ Should be updated to this for version 2:
 ```twig
 {% set S_CC_FORUM_HIDDEN = S_FOO_HIDDEN %}
 {% set U_CC_COLLAPSE_URL = U_FOO_COLLAPSE_URL %}
+{% set L_CC_BUTTON_TITLE = 'COLLAPSIBLE_CATEGORIES_TITLE' %}
 {% include '@phpbb_collapsiblecategories/collapsible_categories_button.html' ignore missing %}
 ```
 {% endraw %}
