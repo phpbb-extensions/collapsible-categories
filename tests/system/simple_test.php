@@ -91,7 +91,6 @@ class simple_test extends \phpbb_test_case
 			->with('config')
 			->willReturn($config);
 
-		/** @var \phpbb\collapsiblecategories\ext */
 		$ext = new \phpbb\collapsiblecategories\ext($this->container, $this->extension_finder, $this->migrator, 'phpbb/collapsiblecategories', '');
 
 		self::assertSame($expected, $ext->is_enableable());
