@@ -6,6 +6,7 @@
 /* Collapse button */
 .collapse-btn {
 	font-size: 0.8rem !important;
+	margin-top: -20px;
 	padding-right: 2px;
 }
 
