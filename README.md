@@ -35,4 +35,4 @@ You can install this on the latest release of phpBB 3.2 by following the steps b
 Adding Collapsible Forum Categories to an existing extension is easy for an extension author to achieve. View the [Wiki Page](https://github.com/phpbb-extensions/collapsible-categories/wiki) to learn how.
 
 ## License
-[GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)
+[GNU General Public License v2](https://opensource.org/licenses/GPL-2.0)
