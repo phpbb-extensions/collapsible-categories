@@ -3,7 +3,6 @@ services:
         class: phpbb\collapsiblecategories\event\listener
         arguments:
             - '@phpbb.collapsiblecategories.operator'
-            - '@template'
         tags:
             - { name: event.listener }
 

@@ -1,13 +1,13 @@
 # Collapsible Categories
 
-This is the repository for the development of the Collapsible Categories Extension for phpBB 3.2
+This is the repository for the development of the Collapsible Categories Extension for phpBB 3.3
 
 [![Build Status](https://github.com/phpbb-extensions/collapsible-categories/workflows/Tests/badge.svg)](https://github.com/phpbb-extensions/collapsible-categories/actions)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpbb-extensions/collapsible-categories/?branch=master)
 [![codecov](https://codecov.io/gh/phpbb-extensions/collapsible-categories/branch/master/graph/badge.svg?token=oB6bt9E4Bj)](https://codecov.io/gh/phpbb-extensions/collapsible-categories)
 
 ## Quick Install
-You can install this on the latest release of phpBB 3.2 by following the steps below:
+You can install this on the latest release of phpBB 3.3 by following the steps below:
 
 1. [Download the latest release](https://www.phpbb.com/customise/db/extension/collapsible_forum_categories/).
 2. Unzip the downloaded release and copy it to the `ext` directory of your phpBB board.
@@ -35,4 +35,4 @@ You can install this on the latest release of phpBB 3.2 by following the steps b
 Adding Collapsible Forum Categories to an existing extension is easy for an extension author to achieve. View the [Wiki Page](https://github.com/phpbb-extensions/collapsible-categories/wiki) to learn how.
 
 ## License
-[GNU General Public License v2](http://opensource.org/licenses/GPL-2.0)
+[GNU General Public License v2](https://opensource.org/licenses/GPL-2.0)

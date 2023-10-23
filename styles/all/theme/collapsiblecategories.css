@@ -10,7 +10,7 @@
 	font-size: 1rem !important; /* Adjust to change the button size */
 	position: relative;
 	float: right;
-	margin: -20px 0 0; /* Adjust to tweak position: top right/left bottom */
+	margin: -1.5rem 0 0; /* Adjust to tweak position: top right/left bottom */
 }
 
 .rtl .collapse-btn {

@@ -66,10 +66,6 @@ class listener_test extends \phpbb_test_case
 				->getMock(),
 			$this->user
 		);
-
-		// Stub of the template class
-		$this->template = $this->getMockBuilder('\phpbb\template\template')
-			->getMock();
 	}
 
 	/**
@@ -78,8 +74,7 @@ class listener_test extends \phpbb_test_case
 	protected function set_listener()
 	{
 		$this->listener = new \phpbb\collapsiblecategories\event\listener(
-			$this->operator,
-			$this->template
+			$this->operator
 		);
 	}
 
