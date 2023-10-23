@@ -1,13 +1,14 @@
 /* Import base collapsible categories stylesheet */
 @import url("../../all/theme/collapsiblecategories.css");
 
-/* Styling overrides for Violaceous theme */
+/* Styling overrides for DVGFX2 theme */
 
 /* Collapse button */
 .collapse-btn {
-	padding-right: 5px;
+	margin-top: -26px;
+	padding-right: 6px;
 }
 
 .rtl .collapse-btn {
-	padding-left: 5px;
+	padding-left: 6px;
 }
