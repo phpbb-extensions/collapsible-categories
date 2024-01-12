@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.0 - 2023-10-23
+
+- Breaking change, this version requires phpBB 3.3.11 or newer.
+- Fixed styling issues related to the positioning of the collapsible buttons in Prosilver.
+- Removed unused code.
+- Added style support for:
+	- SE Gamer Dark
+    - DVGFX2
+- Added language packs for:
+	- Serbian
+
 ## 2.0.1 - 2022-06-18
 
 - Allow extensions to change the text of the collapse button tooltip
