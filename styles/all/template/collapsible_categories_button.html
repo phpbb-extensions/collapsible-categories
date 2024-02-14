@@ -1,9 +1,9 @@
 <a href="{{ U_CC_COLLAPSE_URL }}" class="collapse-btn" data-hidden="{{ S_CC_FORUM_HIDDEN }}" data-ajax="phpbb_collapse" data-overlay="true" style="line-height: 0; display: none;">
 	{% if S_CC_FORUM_HIDDEN %}
-		{{ Icon('iconify', 'bi:caret-left-square', lang(L_CC_BUTTON_TITLE, 1), true, ('c-watch-icon is-active')) }}
-		{{ Icon('iconify', 'bi:caret-down-square', lang(L_CC_BUTTON_TITLE, 0), true, ('c-watch-icon')) }}
+		{{ Icon('font', 'caret-square-left', lang(L_CC_BUTTON_TITLE, 1), true, ('fas c-watch-icon is-active')) }}
+		{{ Icon('font', 'caret-square-down', lang(L_CC_BUTTON_TITLE, 0), true, ('fas c-watch-icon')) }}
 	{% else %}
-		{{ Icon('iconify', 'bi:caret-down-square', lang(L_CC_BUTTON_TITLE, 0), true, ('c-watch-icon is-active')) }}
-		{{ Icon('iconify', 'bi:caret-left-square', lang(L_CC_BUTTON_TITLE, 1), true, ('c-watch-icon')) }}
+		{{ Icon('font', 'caret-square-down', lang(L_CC_BUTTON_TITLE, 0), true, ('fas c-watch-icon is-active')) }}
+		{{ Icon('font', 'caret-square-left', lang(L_CC_BUTTON_TITLE, 1), true, ('fas c-watch-icon')) }}
 	{% endif %}
 </a>
