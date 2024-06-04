@@ -20,8 +20,8 @@ namespace phpbb\collapsiblecategories;
 */
 class ext extends \phpbb\extension\base
 {
-	/** @var string Require phpBB 3.2.0 due to the use of FontAwesome */
-	const PHPBB_MIN_VERSION = '3.2.0';
+	/** @var string Require phpBB 3.3.11 due to restyling of Prosilver forum header bar */
+	public const PHPBB_MIN_VERSION = '3.3.11';
 
 	/**
 	 * Check whether the extension can be enabled.

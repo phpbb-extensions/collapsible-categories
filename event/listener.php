@@ -11,7 +11,6 @@
 namespace phpbb\collapsiblecategories\event;
 
 use phpbb\collapsiblecategories\operator\operator_interface;
-use phpbb\template\template;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -22,19 +21,14 @@ class listener implements EventSubscriberInterface
 	/** @var operator_interface */
 	protected $operator;
 
-	/** @var template */
-	protected $template;
-
 	/**
 	 * Constructor
 	 *
 	 * @param operator_interface $operator Collapsible categories operator object
-	 * @param template           $template Template object
 	 */
-	public function __construct(operator_interface $operator, template $template)
+	public function __construct(operator_interface $operator)
 	{
 		$this->operator = $operator;
-		$this->template = $template;
 	}
 
 	/**
