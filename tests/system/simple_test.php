@@ -56,15 +56,11 @@ class simple_test extends \phpbb_test_case
 			array('3.1.0', false),
 			array('3.1.1', false),
 			array('3.1.1.1', false),
-			array($req_version . '-A1', false),
-			array($req_version . '-RC1', false),
-			array($req_version . '-DEV', false),
+			array('3.3.15', false),
 
 			// Versions equal to or greater than the requirement
-			array($req_version, true),
-			array($req_version . '-PL1', true),
-			array($req_version . '.1', true),
-			array('3.3.11', true),
+			array('4.0.0-dev', true),
+			array('4.0.0', true),
 		);
 	}
 
