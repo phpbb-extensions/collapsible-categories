@@ -104,7 +104,7 @@ class listener_test extends \phpbb_test_case
 	 *
 	 * @return array
 	 */
-	public function show_collapsible_categories_data()
+	public static function show_collapsible_categories_data()
 	{
 		return array(
 			array( // Forum 1 is not in the collapsed array

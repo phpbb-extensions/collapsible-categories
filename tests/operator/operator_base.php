@@ -103,7 +103,7 @@ class operator_base extends \phpbb_database_test_case
 	 *
 	 * @return array
 	 */
-	public function get_categories_data()
+	public static function get_categories_data()
 	{
 		return array(
 			array(array()),
@@ -117,7 +117,7 @@ class operator_base extends \phpbb_database_test_case
 	 *
 	 * @return array
 	 */
-	public function set_categories_data()
+	public static function set_categories_data()
 	{
 		return array(
 			array('foo_1', array(), array('foo_1')), // add new forum to an empty set

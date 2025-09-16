@@ -60,7 +60,7 @@ class main_controller_test extends \phpbb_test_case
 	 *
 	 * @return array
 	 */
-	public function main_test_data()
+	public static function main_test_data()
 	{
 		return array(
 			array('fid_1', true, true, 200, '{"success":true}'), // AJAX response with true result
@@ -96,7 +96,7 @@ class main_controller_test extends \phpbb_test_case
 	 *
 	 * @return array
 	 */
-	public function main_test_fails_data()
+	public static function main_test_fails_data()
 	{
 		return array(
 			array(0, true, 403, 'NO_AUTH_OPERATION'), // bad forum_id
