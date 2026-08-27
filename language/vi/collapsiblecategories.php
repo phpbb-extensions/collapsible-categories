@@ -39,5 +39,8 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'COLLAPSIBLE_CATEGORIES_TITLE'		=> 'Thu nhỏ chuyên mục',
+	'COLLAPSIBLE_CATEGORIES_TITLE'		=> array(
+		0 => 'Ẩn chuyên mục diễn đàn này',
+		1 => 'Hiện chuyên mục diễn đàn này',
+	),
 ));
