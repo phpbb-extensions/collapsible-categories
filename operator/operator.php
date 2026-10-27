@@ -87,7 +87,7 @@ class operator implements operator_interface
 	public function get_user_categories()
 	{
 		// Get categories from the user object
-		$collapsible_categories = (array) json_decode($this->user->data['collapsible_categories'], true);
+		$collapsible_categories = (array) json_decode($this->user->data['collapsible_categories'] ?? '', true);
 
 		if (empty($collapsible_categories))
 		{
